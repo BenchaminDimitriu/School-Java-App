@@ -40,13 +40,24 @@ public class Teacher extends Person implements PayRoll{
         return "Id: " + id + " Name: " + name + " Age: " + age + " Gender: " + gender + " Speciality: " + speciality + " Degree: " + degree;
     }
 
-    //@Override
-    ///public double ComputePayRoll() {
-        //String Phd;
-        //if(degree == Phd){
-            
-        //}
-        
-    //}
-    
+    @Override
+    public double ComputePayRoll() {
+        int PhdSal = 112;
+        int MasterSal = 82;
+        int BachelorSal = 42;
+        if (null != degree)switch (degree) {
+            case "Phd":
+                saldegree = (36 * PhdSal * 2);
+                break;
+            case "Master":
+                saldegree = (36 * MasterSal * 2);
+                break;
+            case "Bachelor":
+                saldegree = (36 * BachelorSal * 2);
+                break;
+            default:
+                break;
+        }
+        return saldegree;
+    }
 }

@@ -5,6 +5,7 @@ public class Staff extends Person implements PayRoll{
     //Variables for Staff
     private String duty;
     private int workload;
+    private double sal;
     
     //Setters and Getters
     public String getDuty() {
@@ -35,9 +36,13 @@ public class Staff extends Person implements PayRoll{
         return "Id: " + id + " Name: " + name + " Age: " + age + " Gender: " + gender + " Duty: " + duty + " Workload: " + workload;
     } 
 
-    /*@Override
+    @Override
     public double ComputePayRoll() {
-        
+        if(workload<36){
+            sal = (workload * 32 * 2) * 0.85;
+        }else{
+            System.out.println("Working hours cannot be more than 36 hours");
+        }
+        return sal;
     }
-*/
 }
