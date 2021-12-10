@@ -46,17 +46,19 @@ public class StudentMenuController implements Initializable {
     @FXML
     private TableColumn<?, ?> cln_Gender;
     @FXML
-    private TextField tf_Speciality;
+    private TextField tf_Dept_ID;
     @FXML
-    private TextField tf_Degree;
+    private TextField tf_Course;
     @FXML
-    private Button btn_Assign_Dean;
+    private TextField tf_Semester;
     @FXML
-    private TableView<?> tbl_Teach;
+    private TableView<?> tbl_Stu;
     @FXML
-    private TableColumn<?, ?> cln_Speciality;
+    private TableColumn<?, ?> cln_Course;
     @FXML
-    private TableColumn<?, ?> cln_Degree;
+    private TableColumn<?, ?> cln_Semester;
+    @FXML
+    private TableColumn<?, ?> cln_Dept_ID;
 
     /**
      * Initializes the controller class.

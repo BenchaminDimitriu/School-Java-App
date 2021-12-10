@@ -9,10 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="856.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="finalproject.StaffMenuController">
+<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.StaffMenuController">
    <children>
-      <VBox layoutX="152.0" layoutY="50.0" prefHeight="341.0" prefWidth="198.0" spacing="20.0">
+      <VBox layoutX="127.0" layoutY="47.0" prefHeight="341.0" prefWidth="198.0" spacing="20.0">
          <children>
             <TextField fx:id="tf_ID" />
             <TextField fx:id="tf_Name" />
@@ -20,13 +19,14 @@
             <TextField fx:id="tf_Gender" />
             <TextField fx:id="tf_Duty" />
             <TextField fx:id="tf_Workload" prefWidth="229.0" />
+            <TextField fx:id="tf_Dept_ID" prefWidth="229.0" />
          </children>
       </VBox>
-      <Button fx:id="btn_Search" layoutX="87.0" layoutY="398.0" mnemonicParsing="false" text="Search" />
-      <Button fx:id="btn_Assign_Dept" layoutX="232.0" layoutY="398.0" mnemonicParsing="false" text="Assign Department" />
-      <Button fx:id="btn_Load" layoutX="14.0" layoutY="398.0" mnemonicParsing="false" text="Load" />
-      <Button fx:id="btn_Add" layoutX="163.0" layoutY="398.0" mnemonicParsing="false" text="Add" />
-      <TableView fx:id="tbl_Staff" layoutX="371.0" layoutY="29.0" prefHeight="397.0" prefWidth="444.0">
+      <Button fx:id="btn_Search" layoutX="80.0" layoutY="398.0" mnemonicParsing="false" text="Search" />
+      <Button fx:id="btn_Assign_Dept" layoutX="225.0" layoutY="398.0" mnemonicParsing="false" text="Assign Department" />
+      <Button fx:id="btn_Load" layoutX="7.0" layoutY="398.0" mnemonicParsing="false" text="Load" />
+      <Button fx:id="btn_Add" layoutX="156.0" layoutY="398.0" mnemonicParsing="false" text="Add" />
+      <TableView fx:id="tbl_Staff" layoutX="343.0" layoutY="26.0" prefHeight="397.0" prefWidth="527.0">
         <columns>
           <TableColumn fx:id="cln_ID" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="cln_Name" prefWidth="75.0" text="Name" />
@@ -34,11 +34,12 @@
             <TableColumn fx:id="cln_Gender" prefWidth="75.0" text="Gender" />
             <TableColumn fx:id="cln_Duty" prefWidth="75.0" text="Duty" />
             <TableColumn fx:id="cln_Workload" prefWidth="75.0" text="Workload" />
+            <TableColumn fx:id="cln_Dept_ID" prefWidth="75.0" text="Dept ID" />
         </columns>
       </TableView>
       <Button fx:id="btn_Compute_Payroll" layoutX="113.0" layoutY="481.0" mnemonicParsing="false" text="Compute Payroll" />
       <TextField fx:id="tf_Compute_Payroll" layoutX="262.0" layoutY="481.0" />
-      <VBox alignment="TOP_RIGHT" layoutX="32.0" layoutY="50.0" prefHeight="253.0" prefWidth="110.0" spacing="17.0">
+      <VBox alignment="TOP_RIGHT" layoutX="7.0" layoutY="47.0" prefHeight="253.0" prefWidth="110.0" spacing="17.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID:">
                <font>
@@ -66,6 +67,11 @@
                </font>
             </Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Workload:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dept ID:">
                <font>
                   <Font size="20.0" />
                </font>

@@ -9,8 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="951.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="finalproject.StudentMenuController">
+<AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.StudentMenuController">
    <children>
       <VBox layoutX="218.0" layoutY="26.0" prefHeight="305.0" prefWidth="194.0" spacing="30.0">
          <children>
@@ -20,13 +19,14 @@
             <TextField fx:id="tf_Gender" />
             <TextField fx:id="tf_Course" />
             <TextField fx:id="tf_Semester" />
+            <TextField fx:id="tf_Dept_ID" />
          </children>
       </VBox>
       <Button fx:id="btn_Add" layoutX="14.0" layoutY="390.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="66.0" text="Add" />
       <Button fx:id="btn_Load" layoutX="94.0" layoutY="393.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="66.0" text="Load" />
       <Button fx:id="btn_Assign_Dept" layoutX="169.0" layoutY="393.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="104.0" text="Assign Dept." />
       <Button fx:id="btn_Search" layoutX="288.0" layoutY="393.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="83.0" text="Search" />
-      <TableView fx:id="tbl_Stu" layoutX="459.0" layoutY="14.0" prefHeight="329.0" prefWidth="459.0">
+      <TableView fx:id="tbl_Stu" layoutX="418.0" layoutY="14.0" prefHeight="329.0" prefWidth="530.0">
         <columns>
           <TableColumn fx:id="cln_ID" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="cln_Name" prefWidth="75.0" text="Name" />
@@ -34,6 +34,7 @@
             <TableColumn fx:id="cln_Gender" prefWidth="75.0" text="Gender" />
             <TableColumn fx:id="cln_Course" prefWidth="75.0" text="Course" />
             <TableColumn fx:id="cln_Semester" prefWidth="75.0" text="Semester" />
+            <TableColumn fx:id="cln_Dept_ID" prefWidth="75.0" text="Dept ID" />
         </columns>
       </TableView>
       <Text layoutX="152.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="66.158203125">
@@ -62,6 +63,11 @@
          </font>
       </Text>
       <Text layoutX="113.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="122.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dept. ID:">
          <font>
             <Font size="22.0" />
          </font>
