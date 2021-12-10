@@ -53,4 +53,3 @@ abstract class Person {
        this.gender = gender;
    }
 }
-

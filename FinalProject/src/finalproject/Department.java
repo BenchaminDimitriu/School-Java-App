@@ -46,7 +46,7 @@ public class Department {
     public void addStudentDept(Student student){
         studentDept.add(student);
     }
-    
+    //Set Dean & Get Dean
     public void setDean(Teacher teach){
         this.Dean = teach;    
     }
