@@ -48,7 +48,8 @@ public class Teacher extends Person implements PayRoll{
         int MasterSal = 82;
         int BachelorSal = 42;
         //switch case to calculate different salaries
-        if (null != degree)switch (degree) {
+        if (null != degree)
+            switch (degree) {
             case "Phd":
                 saldegree = (36 * PhdSal * 2);
                 break;
