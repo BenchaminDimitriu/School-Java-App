@@ -11,6 +11,7 @@ public class Department {
     private Teacher Dean = new Teacher();
     public static ArrayList<Teacher> teacherDept = new ArrayList<Teacher>();
     public static ArrayList<Student> studentDept = new ArrayList<Student>();
+    public static ArrayList<Staff> staffDept = new ArrayList<Staff>();
 
     //Setters & Getters
     public void setId(int id) {
@@ -35,6 +36,10 @@ public class Department {
 
     public ArrayList<Student> getStudentDept() {
         return studentDept;
+    }
+    
+    public ArrayList<Staff> getStaffDept(){
+        return staffDept;
     }
 
     //Methods to add to department
