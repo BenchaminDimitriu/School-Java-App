@@ -35,12 +35,16 @@ public class Staff extends Person implements PayRoll{
     public String toString(){
         return "Id: " + id + " Name: " + name + " Age: " + age + " Gender: " + gender + " Duty: " + duty + " Workload: " + workload;
     } 
-
+    
+    //Implementing Payroll
     @Override
     public double ComputePayRoll() {
+        //checking if workload is over 36h
         if(workload<36){
+            //equation
             sal = (workload * 32 * 2) * 0.85;
         }else{
+            //if workload does not make sense
             System.out.println("Working hours cannot be more than 36 hours");
         }
         return sal;
