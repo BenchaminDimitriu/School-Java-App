@@ -77,5 +77,6 @@
             </Text>
          </children>
       </VBox>
+      <Button fx:id="btn_Back_To_Menu" layoutX="845.0" layoutY="558.0" mnemonicParsing="false" text="Back To Menu" />
    </children>
 </AnchorPane>

@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.event.ActionEvent;
 
 /**
  * FXML Controller class
@@ -34,5 +35,21 @@ public class MenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    @FXML
+    private void handleButtonAction(ActionEvent event) {
+        if(event.getSource() == btn_Dept) {
+            
+        }
+        if(event.getSource() == btn_Staff){
+        
+        }
+        if(event.getSource() == btn_Teacher){
+            
+        }
+        if(event.getSource() == btn_Student){
+            
+        }
+    }
     
 }

@@ -63,6 +63,8 @@ public class StaffMenuController implements Initializable {
     private TextField tf_Dept_ID;
     @FXML
     private TableColumn<?, ?> cln_Dept_ID;
+    @FXML
+    private Button btn_Back_To_Menu;
 
     /**
      * Initializes the controller class.
