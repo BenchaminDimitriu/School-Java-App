@@ -4,6 +4,10 @@ package finalproject;
 import java.util.ArrayList;
 
 public class Department {
+
+    static Object getScene() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    //Variables for  Department
     private int id;
     private String description;
