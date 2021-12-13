@@ -61,17 +61,17 @@ public class MenuController implements Initializable {
         }
         if(event.getSource() == btn_Staff){
             System.out.println("You are in Staff fxml");
-            stage = (Stage) btn_Dept.getScene().getWindow();
+            stage = (Stage) btn_Staff.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("StaffMenu.fxml"));
         }
         if(event.getSource() == btn_Teacher){
             System.out.println("You are in Teacher fxml");
-            stage = (Stage) btn_Dept.getScene().getWindow();
+            stage = (Stage) btn_Teacher.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("TeacherMenu.fxml"));
         }
         if(event.getSource() == btn_Student){
             System.out.println("You are in Student fxml");
-            stage = (Stage) btn_Dept.getScene().getWindow();
+            stage = (Stage) btn_Student.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("StudentMenu.fxml"));
         }
         Scene scene = new Scene(root);

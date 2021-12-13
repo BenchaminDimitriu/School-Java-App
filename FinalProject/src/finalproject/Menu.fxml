@@ -11,9 +11,9 @@
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="377.0" prefWidth="163.0" spacing="20.0">
          <children>
             <Button fx:id="btn_Dept" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="76.0" prefWidth="155.0" text="Department" />
-            <Button fx:id="btn_Staff" mnemonicParsing="false" prefHeight="76.0" prefWidth="155.0" text="Staff" />
-            <Button fx:id="btn_Teacher" mnemonicParsing="false" prefHeight="76.0" prefWidth="155.0" text="Teacher" />
-            <Button fx:id="btn_Student" mnemonicParsing="false" prefHeight="76.0" prefWidth="155.0" text="Student" />
+            <Button fx:id="btn_Staff" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="76.0" prefWidth="155.0" text="Staff" />
+            <Button fx:id="btn_Teacher" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="76.0" prefWidth="155.0" text="Teacher" />
+            <Button fx:id="btn_Student" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="76.0" prefWidth="155.0" text="Student" />
          </children>
       </VBox>
       <TextField layoutX="208.0" layoutY="69.0" prefHeight="263.0" prefWidth="365.0" text="Menu">
