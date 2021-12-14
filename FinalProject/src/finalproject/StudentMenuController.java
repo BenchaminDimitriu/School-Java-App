@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -48,17 +49,21 @@ public class StudentMenuController implements Initializable {
     @FXML
     private TextField tf_Dept_ID;
     @FXML
-    private TextField tf_Course;
-    @FXML
-    private TextField tf_Semester;
-    @FXML
-    private TableView<?> tbl_Stu;
-    @FXML
-    private TableColumn<?, ?> cln_Course;
-    @FXML
-    private TableColumn<?, ?> cln_Semester;
-    @FXML
     private TableColumn<?, ?> cln_Dept_ID;
+    @FXML
+    private TextField tf_Speciality;
+    @FXML
+    private TextField tf_Degree;
+    @FXML
+    private Button btn_Assign_Dean;
+    @FXML
+    private TableView<?> tbl_Teach;
+    @FXML
+    private TableColumn<?, ?> cln_Speciality;
+    @FXML
+    private TableColumn<?, ?> cln_Degree;
+    @FXML
+    private VBox Teach_VBOX;
 
     /**
      * Initializes the controller class.
