@@ -24,6 +24,7 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -81,11 +82,17 @@ public class TeacherMenuController implements Initializable {
     
     public static ObservableList<Teacher> TeachL = FXCollections.observableArrayList();
 
-    public void BufferedReaderFile(FileReader fileReader){
+    public void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader(
-            "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            //id,name,age,gender,speciality,degree,department_id
+            String line = reader.readLine();
+             while(line!=null){
+                 System.out.println(line);
+                String Mydata[]  = line.split(",");
+                 Teacher newTeach = new Teacher(Integer.parseInt(Mydata[0]), Mydata[1], Integer.parseInt(Mydata[2]), Mydata[3], Mydata[4], Mydata[5]);
+             }
         }catch(FileNotFoundException lostfile){
             System.out.println(lostfile.getMessage());
         }
@@ -106,7 +113,7 @@ public class TeacherMenuController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         }
         if(event.getSource() == btn_Load){
-            
+            BufferedReaderFile(fileReader);
         }
         Scene scene = new Scene(root);
         stage.setScene(scene);
