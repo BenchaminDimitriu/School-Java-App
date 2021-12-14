@@ -85,7 +85,7 @@ public class TeacherMenuController implements Initializable {
         BufferedReader reader;
         try{
             reader = new BufferedReader(new FileReader(
-            "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
         }catch(FileNotFoundException lostfile){
             System.out.println(lostfile.getMessage());
         }
@@ -113,13 +113,13 @@ public class TeacherMenuController implements Initializable {
         stage.show();
     }
      public void initiliazeTeach(ObservableList<Teacher> arr){
-         cln_ID.setCellFactory(new PropertyValueFactory<>("ID"));
-         cln_Name.setCellFactory(new PropertyValueFactory<>("Name"));
-         cln_Age.setCellFactory(new PropertyValueFactory<>("Age"));
-         cln_Gender.setCellFactory(new PropertyValueFactory<>("Gender"));
-         cln_Speciality.setCellFactory(new PropertyValueFactory<>("Speciality"));
-         cln_Degree.setCellFactory(new PropertyValueFactory<>("Degree"));
-         cln_Dept_ID.setCellFactory(new PropertyValueFactory<>("Dept ID"));
+         cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+         cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+         cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));
+         cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+         cln_Speciality.setCellValueFactory(new PropertyValueFactory<>("Speciality"));
+         cln_Degree.setCellValueFactory(new PropertyValueFactory<>("Degree"));
+         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept ID"));
          tbl_Teach.setItems(arr);
      }
 }

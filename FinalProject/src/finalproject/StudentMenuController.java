@@ -82,7 +82,7 @@ public class StudentMenuController implements Initializable {
         BufferedReader reader;
         try{
             reader = new BufferedReader(new FileReader(
-            "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt"));
+            "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt"));
         }catch(FileNotFoundException lostfile){
             System.out.println(lostfile.getMessage());
         }
