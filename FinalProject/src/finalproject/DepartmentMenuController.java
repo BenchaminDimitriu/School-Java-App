@@ -7,12 +7,17 @@ package finalproject;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -51,6 +56,8 @@ public class DepartmentMenuController implements Initializable {
     private TableColumn<?, ?> cln_Dept_Desc;
     @FXML
     private Button btn_Load;
+    @FXML
+    private Button btn_Back_To_Menu;
 
     /**
      * Initializes the controller class.
@@ -60,4 +67,17 @@ public class DepartmentMenuController implements Initializable {
         // TODO
     }    
     
+    @FXML
+    private void handleButtonAction(ActionEvent event) throws Exception{
+        Stage stage= null;
+        Parent root= null;
+        if(event.getSource() == btn_Back_To_Menu){ 
+            System.out.println("You are in Menu fxml");
+            stage = (Stage) btn_Back_To_Menu.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        }
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
