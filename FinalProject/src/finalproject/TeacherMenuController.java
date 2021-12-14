@@ -80,6 +80,8 @@ public class TeacherMenuController implements Initializable {
     @FXML
     private Button btn_Back_To_Menu;
     
+    private FileReader fileReader;
+    
     public static ObservableList<Teacher> TeachL = FXCollections.observableArrayList();
 
     public void BufferedReaderFile(FileReader fileReader) throws IOException{
@@ -92,6 +94,11 @@ public class TeacherMenuController implements Initializable {
                  System.out.println(line);
                 String Mydata[]  = line.split(",");
                  Teacher newTeach = new Teacher(Integer.parseInt(Mydata[0]), Mydata[1], Integer.parseInt(Mydata[2]), Mydata[3], Mydata[4], Mydata[5]);
+                 for(String input: Mydata){
+                    System.out.println( "Input: " + input);
+                }
+                line = reader.readLine();
+                TeachL.add(newTeach);
              }
         }catch(FileNotFoundException lostfile){
             System.out.println(lostfile.getMessage());
