@@ -81,6 +81,7 @@ public class StudentMenuController implements Initializable {
         // TODO
     }    
     
+    @FXML
     private void handleButtonAction(ActionEvent event) throws Exception{
         Stage stage= null;
         Parent root= null;
