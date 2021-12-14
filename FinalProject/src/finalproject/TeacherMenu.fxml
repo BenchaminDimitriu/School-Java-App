@@ -9,8 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="finalproject.TeacherMenuController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.TeacherMenuController">
    <children>
       <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="598.0" prefWidth="951.0">
          <children>
@@ -25,8 +24,8 @@
                   <TextField fx:id="tf_Dept_ID" />
                </children>
             </VBox>
-            <Button fx:id="btn_Add" layoutX="14.0" layoutY="390.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="66.0" text="Add" />
-            <Button fx:id="btn_Load" layoutX="94.0" layoutY="393.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="66.0" text="Load" />
+            <Button fx:id="btn_Add" layoutX="14.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="66.0" text="Add" />
+            <Button fx:id="btn_Load" layoutX="94.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="66.0" text="Load" />
             <Button fx:id="btn_Assign_Dept" layoutX="169.0" layoutY="393.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="104.0" text="Assign Dept." />
             <Button fx:id="btn_Search" layoutX="288.0" layoutY="393.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="83.0" text="Search" />
             <Button fx:id="btn_Assign_Dean" layoutX="169.0" layoutY="467.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="104.0" text="Assign Dean" />
@@ -80,7 +79,7 @@
                   </Text>
                </children>
             </VBox>
-            <Button fx:id="btn_Back_To_Menu" layoutX="845.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleButtonAction"  text="Back To Menu" />
+            <Button fx:id="btn_Back_To_Menu" layoutX="845.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Back To Menu" />
          </children>
       </AnchorPane>
    </children>

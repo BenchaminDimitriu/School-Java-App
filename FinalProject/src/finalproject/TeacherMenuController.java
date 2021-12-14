@@ -83,11 +83,30 @@ public class TeacherMenuController implements Initializable {
     private FileReader fileReader;
     
     public static ObservableList<Teacher> TeachL = FXCollections.observableArrayList();
-
+    
+    public void getTeacher(ObservableList<Teacher> arr){
+    cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+    cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+    cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));
+    cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+    cln_Speciality.setCellValueFactory(new PropertyValueFactory<>("Speciality"));
+    cln_Degree.setCellValueFactory(new PropertyValueFactory<>("Degree"));
+    cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept ID"));
+    tbl_Teach.setItems(arr);
+    }
+    public void getTeacherList(){
+        Teacher T = new Teacher(Integer.parseInt(cln_ID.getText()),cln_Name.getText(),Integer.parseInt(cln_Age.getText()),cln_Gender.getText(),
+                cln_Speciality.getText(),cln_Degree.getText(),Integer.parseInt(cln_Dept_ID.getText()));
+        TeachL.add(T);
+    }
+    public void SaveTeacher(){
+        getTeacherList();
+        getTeacher(TeachL);
+    }
     public void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
             //id,name,age,gender,speciality,degree,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -121,6 +140,9 @@ public class TeacherMenuController implements Initializable {
         }
         if(event.getSource() == btn_Load){
             BufferedReaderFile(fileReader);
+        }
+        if(event.getSource() == btn_Add){
+            SaveTeacher();
         }
         Scene scene = new Scene(root);
         stage.setScene(scene);

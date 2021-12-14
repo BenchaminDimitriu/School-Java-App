@@ -7,6 +7,10 @@ public class Teacher extends Person implements PayRoll{
     private String degree;
     private double saldegree;
 
+    Teacher(int parseInt, String text, int parseInt0, String text0, String text1, String text2, int parseInt1) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     //Setters & Getters
     public String getSpeciality() {
         return speciality;
