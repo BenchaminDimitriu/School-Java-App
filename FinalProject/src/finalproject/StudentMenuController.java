@@ -5,6 +5,11 @@
  */
 package finalproject;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -73,9 +78,16 @@ public class StudentMenuController implements Initializable {
     @FXML
     private TableColumn<?, ?> cln_Degree;
 
-    /**
-     * Initializes the controller class.
-     */
+    public void BufferedReaderFile(FileReader fileReader){
+        BufferedReader reader;
+        try{
+            reader = new BufferedReader(new FileReader(
+            "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt"));
+        }catch(FileNotFoundException lostfile){
+            System.out.println(lostfile.getMessage());
+        }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

@@ -19,7 +19,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * FXML Controller class
  *
@@ -54,7 +61,7 @@ public class TeacherMenuController implements Initializable {
     @FXML
     private Button btn_Assign_Dean;
     @FXML
-    private TableView<?> tbl_Teach;
+    private TableView<Teacher> tbl_Teach;
     @FXML
     private TableColumn<?, ?> cln_ID;
     @FXML
@@ -71,15 +78,24 @@ public class TeacherMenuController implements Initializable {
     private TableColumn<?, ?> cln_Dept_ID;
     @FXML
     private Button btn_Back_To_Menu;
+    
+    public static ObservableList<Teacher> TeachL = FXCollections.observableArrayList();
 
-    /**
-     * Initializes the controller class.
-     */
+    public void BufferedReaderFile(FileReader fileReader){
+        BufferedReader reader;
+        try{
+            reader = new BufferedReader(new FileReader(
+            "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+        }catch(FileNotFoundException lostfile){
+            System.out.println(lostfile.getMessage());
+        }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
     
+    }    
+        
     @FXML
      private void handleButtonAction(ActionEvent event) throws Exception{
         Stage stage= null;
@@ -89,9 +105,21 @@ public class TeacherMenuController implements Initializable {
             stage = (Stage) btn_Back_To_Menu.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         }
+        if(event.getSource() == btn_Load){
+            
+        }
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    } 
-    
+    }
+     public void initiliazeTeach(ObservableList<Teacher> arr){
+         cln_ID.setCellFactory(new PropertyValueFactory<>("ID"));
+         cln_Name.setCellFactory(new PropertyValueFactory<>("Name"));
+         cln_Age.setCellFactory(new PropertyValueFactory<>("Age"));
+         cln_Gender.setCellFactory(new PropertyValueFactory<>("Gender"));
+         cln_Speciality.setCellFactory(new PropertyValueFactory<>("Speciality"));
+         cln_Degree.setCellFactory(new PropertyValueFactory<>("Degree"));
+         cln_Dept_ID.setCellFactory(new PropertyValueFactory<>("Dept ID"));
+         tbl_Teach.setItems(arr);
+     }
 }
