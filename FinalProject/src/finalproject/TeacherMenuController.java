@@ -83,6 +83,10 @@ public class TeacherMenuController implements Initializable {
     private FileReader fileReader;
     
     public static ObservableList<Teacher> TeachL = FXCollections.observableArrayList();
+    @FXML
+    private Button btn_Compute_Payroll;
+    @FXML
+    private TextField tf_Compute_Payroll;
     
     public void getTeacher(ObservableList<Teacher> arr){
     cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));

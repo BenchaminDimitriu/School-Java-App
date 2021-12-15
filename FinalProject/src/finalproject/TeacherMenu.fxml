@@ -11,25 +11,25 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.TeacherMenuController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="598.0" prefWidth="951.0">
+      <AnchorPane id="AnchorPane" layoutX="-24.0" layoutY="1.0" prefHeight="552.0" prefWidth="938.0" style="-fx-background-color: #8FBC8F;">
          <children>
             <VBox fx:id="Teach_VBOX" layoutX="170.0" layoutY="26.0" prefHeight="305.0" prefWidth="194.0" spacing="30.0">
                <children>
-                  <TextField fx:id="tf_ID" />
-                  <TextField fx:id="tf_Name" />
-                  <TextField fx:id="tf_Age" />
-                  <TextField fx:id="tf_Gender" />
-                  <TextField fx:id="tf_Speciality" />
-                  <TextField fx:id="tf_Degree" />
-                  <TextField fx:id="tf_Dept_ID" />
+                  <TextField fx:id="tf_ID" style="-fx-background-color: #E6E6FA;" />
+                  <TextField fx:id="tf_Name" style="-fx-background-color: #E6E6FA;" />
+                  <TextField fx:id="tf_Age" style="-fx-background-color: #E6E6FA;" />
+                  <TextField fx:id="tf_Gender" style="-fx-background-color: #E6E6FA;" />
+                  <TextField fx:id="tf_Speciality" style="-fx-background-color: #E6E6FA;" />
+                  <TextField fx:id="tf_Degree" style="-fx-background-color: #E6E6FA;" />
+                  <TextField fx:id="tf_Dept_ID" style="-fx-background-color: #E6E6FA;" />
                </children>
             </VBox>
-            <Button fx:id="btn_Add" layoutX="14.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="66.0" text="Add" />
-            <Button fx:id="btn_Load" layoutX="94.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="66.0" text="Load" />
-            <Button fx:id="btn_Assign_Dept" layoutX="169.0" layoutY="393.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="104.0" text="Assign Dept." />
-            <Button fx:id="btn_Search" layoutX="288.0" layoutY="393.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="83.0" text="Search" />
-            <Button fx:id="btn_Assign_Dean" layoutX="169.0" layoutY="467.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="104.0" text="Assign Dean" />
-            <TableView fx:id="tbl_Teach" layoutX="411.0" layoutY="14.0" prefHeight="329.0" prefWidth="526.0">
+            <Button fx:id="btn_Add" layoutX="122.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="66.0" text="Add" textFill="#0a8c5e" />
+            <Button fx:id="btn_Load" layoutX="47.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="66.0" text="Load" textFill="#0a8c5e" />
+            <Button fx:id="btn_Assign_Dept" layoutX="280.0" layoutY="393.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="83.0" text="Assign Dept." textFill="#0a8c5e" />
+            <Button fx:id="btn_Search" layoutX="200.0" layoutY="393.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Search" textFill="#0a8c5e" />
+            <Button fx:id="btn_Assign_Dean" layoutX="280.0" layoutY="439.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="83.0" text="Assign Dean" textFill="#0a8c5e" />
+            <TableView fx:id="tbl_Teach" layoutX="411.0" layoutY="14.0" prefHeight="362.0" prefWidth="526.0">
                <columns>
                   <TableColumn fx:id="cln_ID" prefWidth="75.0" text="ID" />
                   <TableColumn fx:id="cln_Name" prefWidth="75.0" text="Name" />
@@ -42,44 +42,46 @@
             </TableView>
             <VBox layoutX="47.0" layoutY="14.0" prefHeight="376.0" prefWidth="149.0" spacing="22.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="            ID:" wrappingWidth="147.607421875">
+                  <Text fill="#1646a1" strokeType="OUTSIDE" strokeWidth="0.0" text="            ID:" wrappingWidth="147.607421875">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="      Name:" wrappingWidth="148.693359375">
+                  <Text fill="#1646a1" strokeType="OUTSIDE" strokeWidth="0.0" text="      Name:" wrappingWidth="148.693359375">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="          Age:" wrappingWidth="143.08203125">
+                  <Text fill="#1646a1" strokeType="OUTSIDE" strokeWidth="0.0" text="          Age:" wrappingWidth="143.08203125">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    Gender:" wrappingWidth="145.8125">
+                  <Text fill="#1646a1" strokeType="OUTSIDE" strokeWidth="0.0" text="    Gender:" wrappingWidth="145.8125">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Speciality:" wrappingWidth="147.9453125">
+                  <Text fill="#1646a1" strokeType="OUTSIDE" strokeWidth="0.0" text=" Speciality:" wrappingWidth="147.9453125">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    Degree:" wrappingWidth="148.478515625">
+                  <Text fill="#1646a1" strokeType="OUTSIDE" strokeWidth="0.0" text="    Degree:" wrappingWidth="148.478515625">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Dept. ID:" wrappingWidth="148.478515625">
+                  <Text fill="#1646a1" strokeType="OUTSIDE" strokeWidth="0.0" text="   Dept. ID:" wrappingWidth="148.478515625">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Text>
                </children>
             </VBox>
-            <Button fx:id="btn_Back_To_Menu" layoutX="845.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Back To Menu" />
+            <Button fx:id="btn_Back_To_Menu" layoutX="837.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Back To Menu" />
+            <Button fx:id="btn_Compute_Payroll" layoutX="393.0" layoutY="439.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="110.0" text="Compute Payroll" textFill="#0a8c5e" />
+            <TextField fx:id="tf_Compute_Payroll" layoutX="517.0" layoutY="439.0" prefHeight="34.0" prefWidth="110.0" />
          </children>
       </AnchorPane>
    </children>

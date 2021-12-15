@@ -64,19 +64,15 @@ public class StudentMenuController implements Initializable {
     @FXML
     private Button btn_Back_To_Menu;
     @FXML
-    private TextField tf_Speciality;
+    private TextField tf_Course;
     @FXML
-    private TextField tf_Degree;
+    private TextField tf_Semester;
     @FXML
-    private Button btn_Assign_Dean;
+    private TableView<?> tbl_Stu;
     @FXML
-    private VBox Teach_VBOX;
+    private TableColumn<?, ?> cln_Course;
     @FXML
-    private TableView<?> tbl_Teach;
-    @FXML
-    private TableColumn<?, ?> cln_Speciality;
-    @FXML
-    private TableColumn<?, ?> cln_Degree;
+    private TableColumn<?, ?> cln_Semester;
 
     public void BufferedReaderFile(FileReader fileReader){
         BufferedReader reader;
