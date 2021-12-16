@@ -1,4 +1,3 @@
-id,name,age,gender,course,department_id
 1111,Markov Tchebychev,20,male,computer science,5,1001
 2222,Marcarita Wang,21,female,computer science,4,1001
 3333,Yena Kolmogorov,20,other,mathematic,4,1001
