@@ -107,8 +107,54 @@ public class TeacherMenuController implements Initializable {
         getTeacherList();
         getTeacher(TeachL);
     }
-    public void BufferedReaderFile(FileReader fileReader) throws IOException{
-        BufferedReader reader;
+//    public void BufferedReaderFile(FileReader fileReader) throws IOException{
+//        BufferedReader reader;
+//        try{
+//            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+//            //id,name,age,gender,speciality,degree,department_id
+//            String line = reader.readLine();
+//             while(line!=null){
+//                 System.out.println(line);
+//                String Mydata[]  = line.split(",");
+//                 Teacher newTeach = new Teacher(Integer.parseInt(Mydata[0]), Mydata[1], Integer.parseInt(Mydata[2]), Mydata[3], Mydata[4], Mydata[5]);
+//                 for(String input: Mydata){
+//                    System.out.println( "Input: " + input);
+//                }
+//                line = reader.readLine();
+//                TeachL.add(newTeach);
+//             }
+//        }catch(FileNotFoundException lostfile){
+//            System.out.println(lostfile.getMessage());
+//        }
+//    }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    
+    }    
+        
+    @FXML
+     private void handleButtonAction(ActionEvent event) throws Exception{
+        Stage stage= null;
+        Parent root= null;
+        if(event.getSource() == btn_Back_To_Menu){ 
+            System.out.println("You are in Menu fxml");
+            stage = (Stage) btn_Back_To_Menu.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        }
+        if(event.getSource() == btn_Load){
+            //BufferedReaderFile(fileReader);
+            initiliazeTeach(TeachL);
+        }
+        if(event.getSource() == btn_Add){
+            SaveTeacher();
+        }
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+     public void initiliazeTeach(ObservableList<Teacher> arr) throws IOException{
+                 BufferedReader reader;
         try{
             reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
             //id,name,age,gender,speciality,degree,department_id
@@ -126,33 +172,6 @@ public class TeacherMenuController implements Initializable {
         }catch(FileNotFoundException lostfile){
             System.out.println(lostfile.getMessage());
         }
-    }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    
-    }    
-        
-    @FXML
-     private void handleButtonAction(ActionEvent event) throws Exception{
-        Stage stage= null;
-        Parent root= null;
-        if(event.getSource() == btn_Back_To_Menu){ 
-            System.out.println("You are in Menu fxml");
-            stage = (Stage) btn_Back_To_Menu.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-        }
-        if(event.getSource() == btn_Load){
-            BufferedReaderFile(fileReader);
-        }
-        if(event.getSource() == btn_Add){
-            SaveTeacher();
-        }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-     public void initiliazeTeach(ObservableList<Teacher> arr){
          cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
          cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
          cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));
