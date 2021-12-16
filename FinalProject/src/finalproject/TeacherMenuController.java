@@ -95,8 +95,8 @@ public class TeacherMenuController implements Initializable {
         cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
         cln_Speciality.setCellValueFactory(new PropertyValueFactory<>("Speciality"));
         cln_Degree.setCellValueFactory(new PropertyValueFactory<>("Degree"));
-        cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept ID"));
-    tbl_Teach.setItems(arr);
+        cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("dept_ID"));
+        tbl_Teach.setItems(arr);
     }
     public void getTeacherList(){
         Teacher T = new Teacher(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
@@ -117,7 +117,7 @@ public class TeacherMenuController implements Initializable {
                 System.out.println(line);
                 Teacher newTeach = new Teacher();
                 String Mydata[]  = line.split(",");
-                newTeach.setId(Integer.parseInt(Mydata[0]));
+                newTeach.setID(Integer.parseInt(Mydata[0]));
                 newTeach.setName(Mydata[1]);
                 newTeach.setAge(Integer.parseInt(Mydata[2]));
                 newTeach.setGender(Mydata[3]);
@@ -191,7 +191,7 @@ public class TeacherMenuController implements Initializable {
          cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
          cln_Speciality.setCellValueFactory(new PropertyValueFactory<>("Speciality"));
          cln_Degree.setCellValueFactory(new PropertyValueFactory<>("Degree"));
-         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept ID"));
+         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_ID"));
          tbl_Teach.setItems(arr);
      }
 }

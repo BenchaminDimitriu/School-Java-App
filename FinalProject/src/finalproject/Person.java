@@ -9,7 +9,7 @@ abstract class Person {
    private String gender;
    
    //Setters & Getters
- public void setId(int ID) {
+ public void setID(int ID) {
         this.ID = ID;
     }
 
@@ -25,7 +25,7 @@ abstract class Person {
         this.gender = gender;
     }
 
-    public int getId() {
+    public int getID() {
         return this.ID;
     }
 

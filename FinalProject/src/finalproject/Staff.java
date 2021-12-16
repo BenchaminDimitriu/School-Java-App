@@ -33,7 +33,7 @@ public class Staff extends Person implements PayRoll{
     //Display Staff
     @Override
     public String toString(){
-        return "Id: " + this.getId() + " Name: " + this.getName() + " Age: " + this.getAge() + " Gender: " + this.getGender() + " Duty: " + duty + " Workload: " + workload;
+        return "Id: " + this.getID() + " Name: " + this.getName() + " Age: " + this.getAge() + " Gender: " + this.getGender() + " Duty: " + duty + " Workload: " + workload;
     } 
     
     //Implementing Payroll

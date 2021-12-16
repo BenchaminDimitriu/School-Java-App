@@ -33,7 +33,7 @@ public class Student extends Person{
     //Display student info
     @Override
     public String toString(){
-        return "Id: " + this.getId() + " Name: " + this.getName() + " Age: " + this.getAge() + " Gender: " + this.getGender() + " Course: " + course + " Semester: " + semester;
+        return "Id: " + this.getID() + " Name: " + this.getName() + " Age: " + this.getAge() + " Gender: " + this.getGender() + " Course: " + course + " Semester: " + semester;
         
     }
 }

@@ -6,10 +6,11 @@ public class Teacher extends Person implements PayRoll{
     private String speciality;
     private String degree;
     private double saldegree;
+    private int dept_ID;
 
-    Teacher(int parseInt, String text, int parseInt0, String text0, String text1, String text2, int parseInt1) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    Teacher(int parseInt, String text, int parseInt0, String text0, String text1, String text2, int parseInt1) {
+//        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     //Setters & Getters
     public String getSpeciality() {
@@ -27,12 +28,21 @@ public class Teacher extends Person implements PayRoll{
     public String getDegree() {
         return this.degree;
     }
+
+    public int getDept_ID() {
+        return dept_ID;
+    }
+
+    public void setDept_ID(int dept_ID) {
+        this.dept_ID = dept_ID;
+    }
     
     //Teacher constructor -> make object Teacher
-    public Teacher(int ID, String name, int age, String gender, String speciality, String degree){
+    public Teacher(int ID, String name, int age, String gender, String speciality, String degree, int dept_ID){
         super(ID, name, age, gender);
         this.speciality = speciality;
         this.degree = degree;
+        this.dept_ID = dept_ID;
     }
     //Empty constructor for dean
     public Teacher(){
@@ -41,7 +51,7 @@ public class Teacher extends Person implements PayRoll{
     //Display teacher info
     @Override
     public String toString(){
-        return "Id: " + this.getId() + " Name: " + this.getName() + " Age: " + this.getAge() + " Gender: " + this.getGender() + " Speciality: " + speciality + " Degree: " + degree;
+        return "Id: " + this.getID() + " Name: " + this.getName() + " Age: " + this.getAge() + " Gender: " + this.getGender() + " Speciality: " + speciality + " Degree: " + degree;
     }
 
     //Implementing Payroll
