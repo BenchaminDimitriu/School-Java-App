@@ -25,15 +25,15 @@ public class Staff extends Person implements PayRoll{
     }
     
     //Staff constructor -> make object Staff
-    public Staff(String duty, int workload, int id, String name, int age, String gender) {
-        super(id, name, age, gender);
+    public Staff(int ID, String name, int age, String gender,String duty, int workload) {
+        super(ID, name, age, gender);
         this.duty = duty;
         this.workload = workload;
     }
     //Display Staff
     @Override
     public String toString(){
-        return "Id: " + id + " Name: " + name + " Age: " + age + " Gender: " + gender + " Duty: " + duty + " Workload: " + workload;
+        return "Id: " + this.getId() + " Name: " + this.getName() + " Age: " + this.getAge() + " Gender: " + this.getGender() + " Duty: " + duty + " Workload: " + workload;
     } 
     
     //Implementing Payroll

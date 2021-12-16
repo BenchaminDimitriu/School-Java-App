@@ -3,14 +3,14 @@ package finalproject;
 
 abstract class Person {
     //Person variables
-   protected int id;
-   protected String name;
-   protected int age;
-   protected String gender;
+   private int ID;
+   private String name;
+   private int age;
+   private String gender;
    
    //Setters & Getters
- public void setId(int id) {
-        this.id = id;
+ public void setId(int ID) {
+        this.ID = ID;
     }
 
     public void setName(String name) {
@@ -26,7 +26,7 @@ abstract class Person {
     }
 
     public int getId() {
-        return id;
+        return this.ID;
     }
 
     public String getName() {
@@ -46,8 +46,8 @@ abstract class Person {
     }
   
     //Person constructor -> make object Person
-    public Person(int id, String name, int age, String gender){
-       this.id = id;
+    public Person(int ID, String name, int age, String gender){
+       this.ID = ID;
        this.name = name;
        this.age = age;
        this.gender = gender;

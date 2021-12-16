@@ -64,19 +64,19 @@ public class TeacherMenuController implements Initializable {
     @FXML
     private TableView<Teacher> tbl_Teach;
     @FXML
-    private TableColumn<?, ?> cln_ID;
+    private TableColumn<Teacher, Integer> cln_ID;
     @FXML
-    private TableColumn<?, ?> cln_Name;
+    private TableColumn<Teacher, String> cln_Name;
     @FXML
-    private TableColumn<?, ?> cln_Age;
+    private TableColumn<Teacher, Integer> cln_Age;
     @FXML
-    private TableColumn<?, ?> cln_Gender;
+    private TableColumn<Teacher, String> cln_Gender;
     @FXML
-    private TableColumn<?, ?> cln_Speciality;
+    private TableColumn<Teacher, String> cln_Speciality;
     @FXML
-    private TableColumn<?, ?> cln_Degree;
+    private TableColumn<Teacher, String> cln_Degree;
     @FXML
-    private TableColumn<?, ?> cln_Dept_ID;
+    private TableColumn<Teacher, Integer> cln_Dept_ID;
     @FXML
     private Button btn_Back_To_Menu;
     
@@ -89,80 +89,41 @@ public class TeacherMenuController implements Initializable {
     private TextField tf_Compute_Payroll;
     
     public void getTeacher(ObservableList<Teacher> arr){
-    cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-    cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
-    cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));
-    cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
-    cln_Speciality.setCellValueFactory(new PropertyValueFactory<>("Speciality"));
-    cln_Degree.setCellValueFactory(new PropertyValueFactory<>("Degree"));
-    cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept ID"));
+        cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));
+        cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+        cln_Speciality.setCellValueFactory(new PropertyValueFactory<>("Speciality"));
+        cln_Degree.setCellValueFactory(new PropertyValueFactory<>("Degree"));
+        cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept ID"));
     tbl_Teach.setItems(arr);
     }
     public void getTeacherList(){
-        Teacher T = new Teacher(Integer.parseInt(cln_ID.getText()),cln_Name.getText(),Integer.parseInt(cln_Age.getText()),cln_Gender.getText(),
-                cln_Speciality.getText(),cln_Degree.getText(),Integer.parseInt(cln_Dept_ID.getText()));
+        Teacher T = new Teacher(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
+                tf_Speciality.getText(),tf_Degree.getText(),Integer.parseInt(tf_Dept_ID.getText()));
         TeachL.add(T);
     }
     public void SaveTeacher(){
         getTeacherList();
         getTeacher(TeachL);
     }
-//    public void BufferedReaderFile(FileReader fileReader) throws IOException{
-//        BufferedReader reader;
-//        try{
-//            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
-//            //id,name,age,gender,speciality,degree,department_id
-//            String line = reader.readLine();
-//             while(line!=null){
-//                 System.out.println(line);
-//                String Mydata[]  = line.split(",");
-//                 Teacher newTeach = new Teacher(Integer.parseInt(Mydata[0]), Mydata[1], Integer.parseInt(Mydata[2]), Mydata[3], Mydata[4], Mydata[5]);
-//                 for(String input: Mydata){
-//                    System.out.println( "Input: " + input);
-//                }
-//                line = reader.readLine();
-//                TeachL.add(newTeach);
-//             }
-//        }catch(FileNotFoundException lostfile){
-//            System.out.println(lostfile.getMessage());
-//        }
-//    }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    
-    }    
-        
-    @FXML
-     private void handleButtonAction(ActionEvent event) throws Exception{
-        Stage stage= null;
-        Parent root= null;
-        if(event.getSource() == btn_Back_To_Menu){ 
-            System.out.println("You are in Menu fxml");
-            stage = (Stage) btn_Back_To_Menu.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-        }
-        if(event.getSource() == btn_Load){
-            //BufferedReaderFile(fileReader);
-            initiliazeTeach(TeachL);
-        }
-        if(event.getSource() == btn_Add){
-            SaveTeacher();
-        }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-     public void initiliazeTeach(ObservableList<Teacher> arr) throws IOException{
-                 BufferedReader reader;
+    public void BufferedReaderFile(FileReader fileReader) throws IOException{
+        BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
             //id,name,age,gender,speciality,degree,department_id
             String line = reader.readLine();
              while(line!=null){
-                 System.out.println(line);
+                System.out.println(line);
+                Teacher newTeach = new Teacher();
                 String Mydata[]  = line.split(",");
-                 Teacher newTeach = new Teacher(Integer.parseInt(Mydata[0]), Mydata[1], Integer.parseInt(Mydata[2]), Mydata[3], Mydata[4], Mydata[5]);
+                newTeach.setId(Integer.parseInt(Mydata[0]));
+                newTeach.setName(Mydata[1]);
+                newTeach.setAge(Integer.parseInt(Mydata[2]));
+                newTeach.setGender(Mydata[3]);
+                newTeach.setSpeciality(Mydata[4]);
+                newTeach.setDegree(Mydata[5]);
+                //Teacher newTeach = new Teacher(Integer.parseInt(Mydata[0]), Mydata[1], Integer.parseInt(Mydata[2]), Mydata[3], Mydata[4], Mydata[5]);
                  for(String input: Mydata){
                     System.out.println( "Input: " + input);
                 }
@@ -172,6 +133,58 @@ public class TeacherMenuController implements Initializable {
         }catch(FileNotFoundException lostfile){
             System.out.println(lostfile.getMessage());
         }
+        
+    }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    
+    }    
+        
+    @FXML
+     private void handleMenuButtonAction(ActionEvent event) throws Exception{
+        Stage stage= null;
+        Parent root= null;
+        if(event.getSource() == btn_Back_To_Menu){ 
+            System.out.println("You are in Menu fxml");
+            stage = (Stage) btn_Back_To_Menu.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        }
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+     
+    @FXML
+    private void handleButtonAction(ActionEvent event) throws IOException{
+        if(event.getSource() == btn_Load){
+            //BufferedReaderFile(fileReader);
+            initiliazeTeach(TeachL);
+        }
+        if(event.getSource() == btn_Add){
+            SaveTeacher();
+        }
+    }
+     public void initiliazeTeach(ObservableList<Teacher> arr) throws IOException{
+//                 BufferedReader reader;
+//        try{
+//            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+//            //id,name,age,gender,speciality,degree,department_id
+//            String line = reader.readLine();
+//             while(line!=null){
+//                 System.out.println(line);
+//                String Mydata[]  = line.split(",");
+//                 Teacher newTeach = new Teacher(Integer.parseInt(Mydata[0]), Mydata[1], Integer.parseInt(Mydata[2]), Mydata[3], Mydata[4], Mydata[5], Integer.parseInt(Mydata[6]));
+//                 for(String input: Mydata){
+//                    System.out.println( "Input: " + input);
+//                }
+//                line = reader.readLine();
+//                TeachL.add(newTeach);
+//             }
+//        }catch(FileNotFoundException lostfile){
+//            System.out.println(lostfile.getMessage());
+//        }
+         BufferedReaderFile(fileReader);
          cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
          cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
          cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));

@@ -29,8 +29,8 @@ public class Teacher extends Person implements PayRoll{
     }
     
     //Teacher constructor -> make object Teacher
-    public Teacher(int id, String name, int age, String gender, String speciality, String degree){
-        super(id, name, age, gender);
+    public Teacher(int ID, String name, int age, String gender, String speciality, String degree){
+        super(ID, name, age, gender);
         this.speciality = speciality;
         this.degree = degree;
     }
@@ -41,7 +41,7 @@ public class Teacher extends Person implements PayRoll{
     //Display teacher info
     @Override
     public String toString(){
-        return "Id: " + id + " Name: " + name + " Age: " + age + " Gender: " + gender + " Speciality: " + speciality + " Degree: " + degree;
+        return "Id: " + this.getId() + " Name: " + this.getName() + " Age: " + this.getAge() + " Gender: " + this.getGender() + " Speciality: " + speciality + " Degree: " + degree;
     }
 
     //Implementing Payroll
