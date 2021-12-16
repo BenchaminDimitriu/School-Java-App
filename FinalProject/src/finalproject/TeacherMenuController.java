@@ -21,6 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -98,19 +99,48 @@ public class TeacherMenuController implements Initializable {
         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("dept_ID"));
         tbl_Teach.setItems(arr);
     }
-    public void getTeacherList(){
+    public void getTeacherList() throws IOException{
         Teacher T = new Teacher(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
                 tf_Speciality.getText(),tf_Degree.getText(),Integer.parseInt(tf_Dept_ID.getText()));
-        TeachL.add(T);
+        boolean found = false;
+        for (int i = 0; i < TeachL.size(); i++) {
+            if(T.getID() == TeachL.get(i).getID()){
+                found = true;
+                System.out.println("Index already exists!");
+                break;
+            }
+        }
+        if (found == false){
+            TeachL.add(T);
+            BufferedWritter(T); 
+        }
     }
-    public void SaveTeacher(){
+    public void BufferedWritter(Teacher T) throws IOException{
+        String path = "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt";
+        File file = new File("path");
+        FileWriter fw = new FileWriter(path, true);
+        String line = T.getID() + "," + T.getName() + "," + T.getAge() + "," + T.getGender() + "," + T.getSpeciality() + "," + T.getDegree() + "," + T.getDept_ID();
+        fw.write("\n"+line);
+        fw.flush();
+        fw.close();
+    }   
+    public static void OverWriteFile(String fileName) throws IOException{
+        java.io.BufferedWriter writer = new java.io.BufferedWriter(new FileWriter(fileName));
+    }
+    public static void AppendToFile(String data, String fileName) throws IOException{
+        java.io.BufferedWriter writer = new java.io.BufferedWriter(new FileWriter(fileName, true));
+        writer.append("\n");
+        writer.append(data);
+        writer.close();
+    }
+    public void SaveTeacher() throws IOException{
         getTeacherList();
         getTeacher(TeachL);
     }
     public void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
             //id,name,age,gender,speciality,degree,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -123,6 +153,7 @@ public class TeacherMenuController implements Initializable {
                 newTeach.setGender(Mydata[3]);
                 newTeach.setSpeciality(Mydata[4]);
                 newTeach.setDegree(Mydata[5]);
+                newTeach.setDept_ID(Integer.parseInt(Mydata[6]));
                 //Teacher newTeach = new Teacher(Integer.parseInt(Mydata[0]), Mydata[1], Integer.parseInt(Mydata[2]), Mydata[3], Mydata[4], Mydata[5]);
                  for(String input: Mydata){
                     System.out.println( "Input: " + input);
@@ -133,8 +164,18 @@ public class TeacherMenuController implements Initializable {
         }catch(FileNotFoundException lostfile){
             System.out.println(lostfile.getMessage());
         }
-        
     }
+    public void initiliazeTeach(ObservableList<Teacher> arr) throws IOException{
+         BufferedReaderFile(fileReader);
+         cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+         cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+         cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));
+         cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+         cln_Speciality.setCellValueFactory(new PropertyValueFactory<>("Speciality"));
+         cln_Degree.setCellValueFactory(new PropertyValueFactory<>("Degree"));
+         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_ID"));
+         tbl_Teach.setItems(arr);
+     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -160,38 +201,11 @@ public class TeacherMenuController implements Initializable {
         if(event.getSource() == btn_Load){
             //BufferedReaderFile(fileReader);
             initiliazeTeach(TeachL);
+            btn_Load.setDisable(true);
         }
         if(event.getSource() == btn_Add){
             SaveTeacher();
         }
     }
-     public void initiliazeTeach(ObservableList<Teacher> arr) throws IOException{
-//                 BufferedReader reader;
-//        try{
-//            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
-//            //id,name,age,gender,speciality,degree,department_id
-//            String line = reader.readLine();
-//             while(line!=null){
-//                 System.out.println(line);
-//                String Mydata[]  = line.split(",");
-//                 Teacher newTeach = new Teacher(Integer.parseInt(Mydata[0]), Mydata[1], Integer.parseInt(Mydata[2]), Mydata[3], Mydata[4], Mydata[5], Integer.parseInt(Mydata[6]));
-//                 for(String input: Mydata){
-//                    System.out.println( "Input: " + input);
-//                }
-//                line = reader.readLine();
-//                TeachL.add(newTeach);
-//             }
-//        }catch(FileNotFoundException lostfile){
-//            System.out.println(lostfile.getMessage());
-//        }
-         BufferedReaderFile(fileReader);
-         cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-         cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
-         cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));
-         cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
-         cln_Speciality.setCellValueFactory(new PropertyValueFactory<>("Speciality"));
-         cln_Degree.setCellValueFactory(new PropertyValueFactory<>("Degree"));
-         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_ID"));
-         tbl_Teach.setItems(arr);
-     }
 }
+     
