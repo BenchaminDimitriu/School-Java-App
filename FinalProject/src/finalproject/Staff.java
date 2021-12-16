@@ -5,6 +5,19 @@ public class Staff extends Person implements PayRoll{
     //Variables for Staff
     private String duty;
     private int workload;
+    private int dept_ID;
+
+    Staff() {
+
+    }
+
+    public int getDept_ID() {
+        return dept_ID;
+    }
+
+    public void setDept_ID(int dept_ID) {
+        this.dept_ID = dept_ID;
+    }
     private double sal;
     
     //Setters and Getters
@@ -25,8 +38,9 @@ public class Staff extends Person implements PayRoll{
     }
     
     //Staff constructor -> make object Staff
-    public Staff(int ID, String name, int age, String gender,String duty, int workload) {
+    public Staff(int ID, String name, int age, String gender,String duty, int workload,int dept_ID) {
         super(ID, name, age, gender);
+        this.dept_ID = dept_ID;
         this.duty = duty;
         this.workload = workload;
     }

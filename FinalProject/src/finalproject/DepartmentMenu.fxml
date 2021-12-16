@@ -57,6 +57,6 @@
          </font>
       </Text>
       <Button fx:id="btn_Load" layoutX="34.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Load" textFill="#96621a" />
-      <Button fx:id="btn_Back_To_Menu" layoutX="755.0" layoutY="491.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Back To Menu" />
+      <Button fx:id="btn_Back_To_Menu" layoutX="755.0" layoutY="491.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" text="Back To Menu" />
    </children>
 </AnchorPane>

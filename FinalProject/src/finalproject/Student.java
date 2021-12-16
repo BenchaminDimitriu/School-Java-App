@@ -5,10 +5,10 @@ public class Student extends Person{
     //Variable for Student
     private String course;
     private int semester;
-    private int Dept_id; 
+    private int dept_ID; 
 
     Student() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     //Setters & Getters
      public String getCourse() {
@@ -16,11 +16,11 @@ public class Student extends Person{
     }
 
     public int getDept_id() {
-        return Dept_id;
+        return dept_ID;
     }
 
-    public void setDept_id(int Dept_id) {
-        this.Dept_id = Dept_id;
+    public void setDept_id(int dept_ID) {
+        this.dept_ID = dept_ID;
     }
 
     public void setCourse(String course) {
@@ -36,12 +36,12 @@ public class Student extends Person{
     }
     
     //Student constructor -> make object Student
-    public Student(int ID, String name, int age, String gender, String course, int semester,int Dept_id){
+    public Student(int ID, String name, int age, String gender, String course, int semester,int dept_ID){
         //super to call constructor from Person class
         super(ID, name, age, gender);
         this.course = course;
         this.semester = semester;
-        this.Dept_id = Dept_id;
+        this.dept_ID = dept_ID;
     }
     //Display student info
     @Override

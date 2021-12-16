@@ -24,7 +24,7 @@
       </VBox>
       <Button fx:id="btn_Search" layoutX="81.0" layoutY="398.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" text="Search" textFill="#1e15c9" />
       <Button fx:id="btn_Assign_Dept" layoutX="211.0" layoutY="398.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="124.0" text="Assign Department" textFill="#1e15c9" />
-      <Button fx:id="btn_Load" layoutX="20.0" layoutY="397.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="57.0" text="Load" textFill="#1e15c9" />
+      <Button fx:id="btn_Load" layoutX="20.0" layoutY="397.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="27.0" prefWidth="57.0" text="Load" textFill="#1e15c9" />
       <Button fx:id="btn_Add" layoutX="146.0" layoutY="398.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" text="Add" textFill="#1e15c9" />
       <TableView fx:id="tbl_Staff" layoutX="343.0" layoutY="26.0" prefHeight="397.0" prefWidth="527.0">
         <columns>
@@ -78,6 +78,6 @@
             </Text>
          </children>
       </VBox>
-      <Button fx:id="btn_Back_To_Menu" layoutX="764.0" layoutY="534.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Back To Menu" />
+      <Button fx:id="btn_Back_To_Menu" layoutX="764.0" layoutY="534.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" text="Back To Menu" />
    </children>
 </AnchorPane>

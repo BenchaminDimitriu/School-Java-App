@@ -154,7 +154,7 @@ public class StudentMenuController implements Initializable {
     } 
     public void InitiliazeStudent(ObservableList<Student> arr) throws IOException{
         BufferedReaderFile(filereader);
-                 cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+         cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
          cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
          cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));
          cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));

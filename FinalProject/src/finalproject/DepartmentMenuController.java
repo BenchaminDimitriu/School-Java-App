@@ -77,9 +77,8 @@ public class DepartmentMenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
     @FXML
-    private void handleButtonAction(ActionEvent event) throws Exception{
+    private void handleMenuButtonAction(ActionEvent event) throws Exception{
         Stage stage= null;
         Parent root= null;
         if(event.getSource() == btn_Back_To_Menu){ 
@@ -90,5 +89,9 @@ public class DepartmentMenuController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }    
+    @FXML
+    private void handleButtonAction(ActionEvent event) throws Exception{
+        
     }
 }
