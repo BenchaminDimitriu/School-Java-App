@@ -9,7 +9,7 @@ public class Department {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    //Variables for  Department
-    private int id;
+    private int ID;
     private String description;
     //Object Dean of type teacher
     private Teacher Dean = new Teacher();
@@ -17,17 +17,21 @@ public class Department {
     public static ArrayList<Student> studentDept = new ArrayList<Student>();
     public static ArrayList<Staff> staffDept = new ArrayList<Staff>();
 
+    public Department() {
+    
+    }
+
     //Setters & Getters
-    public void setId(int id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
     public String getDescription() {
@@ -65,12 +69,12 @@ public class Department {
 
     //Constructor to make Dept
      public Department(int newId, String newD){
-         this.id = newId;
+         this.ID = newId;
          this.description = newD;
      }
     //Constructor to make Dept with all info
      public Department(int newId, String newD, ArrayList<Teacher> teacherDept, ArrayList<Student> studentDept, Teacher dean) {
-        this.id = newId;
+        this.ID = newId;
         this.description = newD;
         this.teacherDept = teacherDept;
         this.studentDept = studentDept;
@@ -79,6 +83,6 @@ public class Department {
     //Display department 
     @Override
     public String toString(){
-        return "Id: " + id + " Description: " + description;
+        return "Id: " + ID + " Description: " + description;
     } 
 }
