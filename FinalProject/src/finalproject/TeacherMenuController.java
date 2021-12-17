@@ -116,7 +116,7 @@ public class TeacherMenuController implements Initializable {
         }
     }
     public void BufferedWritter(Teacher T) throws IOException{
-        String path = "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt";
+        String path = "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt";
         File file = new File("path");
         FileWriter fw = new FileWriter(path, true);
         String line = T.getID() + "," + T.getName() + "," + T.getAge() + "," + T.getGender() + "," + T.getSpeciality() + "," + T.getDegree() + "," + T.getDept_ID();
@@ -140,7 +140,7 @@ public class TeacherMenuController implements Initializable {
     public void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
             //id,name,age,gender,speciality,degree,department_id
             String line = reader.readLine();
              while(line!=null){

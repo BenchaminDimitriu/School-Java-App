@@ -44,7 +44,7 @@
          </font>
       </Text>
       <TextField fx:id="tf_dept_ID" layoutX="116.0" layoutY="364.0" />
-      <Button fx:id="btn_Dept_ID" layoutX="31.0" layoutY="364.0" mnemonicParsing="false" text="Dept ID" textFill="#96621a" />
+      <Button fx:id="btn_Dept_ID" layoutX="31.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Dept ID" textFill="#96621a" />
       <TableView fx:id="tbl_Department" layoutX="329.0" layoutY="318.0" prefHeight="200.0" prefWidth="200.0">
          <columns>
             <TableColumn fx:id="cln_Dept_ID" prefWidth="75.0" text="ID" />

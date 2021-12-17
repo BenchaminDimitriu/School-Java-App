@@ -26,9 +26,9 @@
             </VBox>
             <Button fx:id="btn_Add" layoutX="122.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="66.0" text="Add" textFill="#0a8c5e" />
             <Button fx:id="btn_Load" layoutX="47.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="66.0" text="Load" textFill="#0a8c5e" />
-            <Button fx:id="btn_Assign_Dept" layoutX="280.0" layoutY="393.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="83.0" text="Assign Dept." textFill="#0a8c5e" />
-            <Button fx:id="btn_Search" layoutX="200.0" layoutY="393.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Search" textFill="#0a8c5e" />
-            <Button fx:id="btn_Assign_Dean" layoutX="280.0" layoutY="439.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="83.0" text="Assign Dean" textFill="#0a8c5e" />
+            <Button fx:id="btn_Assign_Dept" layoutX="280.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="83.0" text="Assign Dept." textFill="#0a8c5e" />
+            <Button fx:id="btn_Search" layoutX="200.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="66.0" text="Search" textFill="#0a8c5e" />
+            <Button fx:id="btn_Assign_Dean" layoutX="280.0" layoutY="439.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="83.0" text="Assign Dean" textFill="#0a8c5e" />
             <TableView fx:id="tbl_Teach" layoutX="411.0" layoutY="14.0" prefHeight="362.0" prefWidth="526.0">
                <columns>
                   <TableColumn fx:id="cln_ID" prefWidth="75.0" text="ID" />
@@ -80,7 +80,7 @@
                </children>
             </VBox>
             <Button fx:id="btn_Back_To_Menu" layoutX="837.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" text="Back To Menu" />
-            <Button fx:id="btn_Compute_Payroll" layoutX="393.0" layoutY="439.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="110.0" text="Compute Payroll" textFill="#0a8c5e" />
+            <Button fx:id="btn_Compute_Payroll" layoutX="393.0" layoutY="439.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="110.0" text="Compute Payroll" textFill="#0a8c5e" />
             <TextField fx:id="tf_Compute_Payroll" layoutX="517.0" layoutY="439.0" prefHeight="34.0" prefWidth="110.0" />
          </children>
       </AnchorPane>

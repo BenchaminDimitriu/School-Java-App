@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -91,16 +92,47 @@ public class StaffMenuController implements Initializable {
         cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
         cln_Duty.setCellValueFactory(new PropertyValueFactory<>("Duty"));
         cln_Workload.setCellValueFactory(new PropertyValueFactory<>("Workload"));
-        cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("dept_ID"));
+        cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_ID"));
         tbl_Staff.setItems(arr);
     }
     
-    public void getStaffList(){
+    public void getStaffList() throws IOException{
         Staff Sf = new Staff(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
         tf_Duty.getText(),Integer.parseInt(tf_Workload.getText()),Integer.parseInt(tf_Dept_ID.getText()));
-        StaffL.add(Sf);
+        //StaffL.add(Sf);
+        boolean found = false;
+        for (int i = 0; i < StaffL.size(); i++) {
+            if(Sf.getID() == StaffL.get(i).getID()){
+                found = true;
+                System.out.println("Index already exists!");
+                break;
+            }
+        }
+        if (found == false){
+            StaffL.add(Sf);
+            BufferedWritter(Sf); 
+        }
     }
-    public void saveStaff(){
+    public void BufferedWritter(Staff Sf) throws IOException {
+        String path = "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt";
+        File file = new File("path");
+        FileWriter fw = new FileWriter(path, true);
+        String line = Sf.getID() + "," + Sf.getName() + "," + Sf.getAge() + "," + Sf.getGender() + "," + Sf.getDuty()+ "," + Sf.getWorkload()+ "," + Sf.getDept_ID();
+        fw.write("\n"+line);
+        fw.flush();
+        fw.close();
+    }   
+    public static void OverWriteFile(String fileName) throws IOException{
+        java.io.BufferedWriter writer = new java.io.BufferedWriter(new FileWriter(fileName));
+    }
+    public static void AppendToFile(String data, String fileName) throws IOException{
+        java.io.BufferedWriter writer = new java.io.BufferedWriter(new FileWriter(fileName, true));
+        writer.append("\n");
+        writer.append(data);
+        writer.close();
+    }
+        
+    public void saveStaff() throws IOException{
         getStaffList();
         getStaff(StaffL);
     }
@@ -121,6 +153,7 @@ public class StaffMenuController implements Initializable {
                 newStaff.setGender(Mydata[3]);
                 newStaff.setDuty(Mydata[4]);
                 newStaff.setWorkload(Integer.parseInt(Mydata[5]));
+                newStaff.setDept_ID(Integer.parseInt(Mydata[6]));
                  for(String input: Mydata){
                     System.out.println( "Input: " + input);
                 }
@@ -151,8 +184,12 @@ public class StaffMenuController implements Initializable {
     }
     @FXML
     private void handleButtonAction(ActionEvent event) throws Exception{
-                if(event.getSource() == btn_Load){
-            InitiliazeStaff(StaffL);
+        if(event.getSource() == btn_Load){
+        InitiliazeStaff(StaffL);
+        btn_Load.setDisable(true);
+        }
+        if(event.getSource() == btn_Add){
+            saveStaff();
         }
     } 
     private void InitiliazeStaff(ObservableList<Staff> arr) throws IOException{
@@ -163,7 +200,7 @@ public class StaffMenuController implements Initializable {
     cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
     cln_Duty.setCellValueFactory(new PropertyValueFactory<>("Duty"));
     cln_Workload.setCellValueFactory(new PropertyValueFactory<>("Workload"));
-    cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("dept_ID"));
+    cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_ID"));
     tbl_Staff.setItems(arr);
     }
 }

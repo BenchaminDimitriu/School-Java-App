@@ -7,7 +7,7 @@ public class Student extends Person{
     private int semester;
     private int dept_ID; 
 
-    Student() {
+    public Student() {
         
     }
     //Setters & Getters

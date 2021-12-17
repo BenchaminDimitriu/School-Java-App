@@ -22,10 +22,10 @@
             <TextField fx:id="tf_Dept_ID" />
          </children>
       </VBox>
-      <Button fx:id="btn_Add" layoutX="166.0" layoutY="408.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" text="Add" textFill="#830a91" />
+      <Button fx:id="btn_Add" layoutX="166.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="66.0" text="Add" textFill="#830a91" />
       <Button fx:id="btn_Load" layoutX="89.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="66.0" text="Load" textFill="#830a91" />
-      <Button fx:id="btn_Assign_Dept" layoutX="323.0" layoutY="408.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" text="Assign Dept." textFill="#830a91" />
-      <Button fx:id="btn_Search" layoutX="248.0" layoutY="408.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" text="Search" textFill="#830a91" />
+      <Button fx:id="btn_Assign_Dept" layoutX="323.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="94.0" text="Assign Dept." textFill="#830a91" />
+      <Button fx:id="btn_Search" layoutX="248.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="66.0" text="Search" textFill="#830a91" />
       <TableView fx:id="tbl_Stu" layoutX="418.0" layoutY="14.0" prefHeight="459.0" prefWidth="530.0">
         <columns>
           <TableColumn fx:id="cln_ID" prefWidth="75.0" text="ID" />

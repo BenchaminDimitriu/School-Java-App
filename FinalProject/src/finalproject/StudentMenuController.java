@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -82,6 +83,8 @@ public class StudentMenuController implements Initializable {
 
     public static ObservableList<Student> StList = FXCollections.observableArrayList();
     
+     
+    
         public void getStudent(ObservableList<Student> arr){
         cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -89,15 +92,45 @@ public class StudentMenuController implements Initializable {
         cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
         cln_Course.setCellValueFactory(new PropertyValueFactory<>("Course"));
         cln_Semester.setCellValueFactory(new PropertyValueFactory<>("Semester"));
-        cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("dept_ID"));
+        cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_id"));
         tbl_Stu.setItems(arr);
     }
-            public void getStudentList(){
+            public void getStudentList() throws IOException{
         Student S = new Student(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
                 tf_Course.getText(),Integer.parseInt(tf_Semester.getText()),Integer.parseInt(tf_Dept_ID.getText()));
-        StList.add(S);
+        //StList.add(S);
+                boolean found = false;
+        for (int i = 0; i < StList.size(); i++) {
+            if(S.getID() == StList.get(i).getID()){
+                found = true;
+                System.out.println("Index already exists!");
+                break;
+            }
+        }
+        if (found == false){
+            StList.add(S);
+            BufferedWritter(S); 
+        }
     }
-                public void SaveTeacher(){
+    public void BufferedWritter(Student S) throws IOException{
+        String path = "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt";
+        File file = new File("path");
+        FileWriter fw = new FileWriter(path, true);
+        String line = S.getID() + "," + S.getName() + "," + S.getAge() + "," + S.getGender() + "," + S.getCourse() + "," + S.getSemester() + "," + S.getDept_id();
+        fw.write("\n"+line);
+        fw.flush();
+        fw.close();
+    }   
+    public static void OverWriteFile(String fileName) throws IOException{
+        java.io.BufferedWriter writer = new java.io.BufferedWriter(new FileWriter(fileName));
+    }
+    public static void AppendToFile(String data, String fileName) throws IOException{
+        java.io.BufferedWriter writer = new java.io.BufferedWriter(new FileWriter(fileName, true));
+        writer.append("\n");
+        writer.append(data);
+        writer.close();
+    }            
+                public void SaveStudent() throws IOException{
         getStudentList();
         getStudent(StList);
     }
@@ -117,6 +150,7 @@ public class StudentMenuController implements Initializable {
                 newStudent.setGender(Mydata[3]);
                 newStudent.setCourse(Mydata[4]);
                 newStudent.setSemester(Integer.parseInt(Mydata[5]));
+                newStudent.setDept_id(Integer.parseInt(Mydata[6]));                
                  for(String input: Mydata){
                     System.out.println( "Input: " + input);
                 }
@@ -150,7 +184,11 @@ public class StudentMenuController implements Initializable {
     private void handleButtonAction(ActionEvent event) throws IOException{
         if(event.getSource() == btn_Load){
             InitiliazeStudent(StList);
+            btn_Load.setDisable(true);
         }
+        if(event.getSource() == btn_Add){
+            SaveStudent();
+        }        
     } 
     public void InitiliazeStudent(ObservableList<Student> arr) throws IOException{
         BufferedReaderFile(filereader);
@@ -160,7 +198,7 @@ public class StudentMenuController implements Initializable {
          cln_Gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
          cln_Course.setCellValueFactory(new PropertyValueFactory<>("Course"));
          cln_Semester.setCellValueFactory(new PropertyValueFactory<>("Semester"));
-         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_ID"));
+         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_id"));
          tbl_Stu.setItems(arr);
     }
 }
