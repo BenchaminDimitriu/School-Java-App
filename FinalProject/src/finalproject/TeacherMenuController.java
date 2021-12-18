@@ -90,6 +90,7 @@ public class TeacherMenuController implements Initializable {
     private TextField tf_Compute_Payroll;
     
     public void getTeacher(ObservableList<Teacher> arr){
+        //setting values in collumns
         cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
         cln_Age.setCellValueFactory(new PropertyValueFactory<>("Age"));
@@ -307,9 +308,7 @@ public class TeacherMenuController implements Initializable {
             SaveTeacher();
         }
         if(event.getSource() == btn_Compute_Payroll){
-            DegreePayment();
-        //compute_Payroll();
-        
+            DegreePayment();        
         }
         if(event.getSource() == btn_Assign_Dept){
             ChangeDept();

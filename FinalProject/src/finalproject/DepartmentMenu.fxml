@@ -13,8 +13,7 @@
       <TableView fx:id="tbl_Teacher" layoutX="31.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="cln_Teach_ID" prefWidth="66.40002822875977" text="ID" />
-          <TableColumn fx:id="cln_Teach_Name" prefWidth="74.4000244140625" text="Name" />
-            <TableColumn fx:id="cln_Teach_Dean" onEditStart="#handleButtonAction" prefWidth="58.39996337890625" text="Dean" />
+          <TableColumn fx:id="cln_Teach_Name" prefWidth="120.79998779296875" text="Name" />
         </columns>
       </TableView>
       <TableView fx:id="tbl_Student" layoutX="329.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0">
@@ -57,11 +56,15 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <Button fx:id="btn_Load" layoutX="34.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Load" textFill="#96621a" />
+      <Button fx:id="btn_Load" layoutX="134.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Load" textFill="#96621a" />
       <Button fx:id="btn_Back_To_Menu" layoutX="755.0" layoutY="491.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" text="Back To Menu" />
-      <Button fx:id="btn_Clear" layoutX="103.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Clear" textFill="#96621a" />
-      <Button fx:id="btn_Assign_Dean" layoutX="177.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="91.0" text="Assign Dean" textFill="#96621a" />
-      <TextField fx:id="tf_teach_ID" layoutX="116.0" layoutY="405.0" />
-      <Button fx:id="btn_Dept_ID1" layoutX="31.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Teach ID" textFill="#96621a" />
+      <Button fx:id="btn_Clear" layoutX="209.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Clear" textFill="#96621a" />
+      <Button fx:id="btn_Assign_Dean" layoutX="13.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="91.0" text="Assign Dean" textFill="#96621a" />
+      <TextField fx:id="tf_teach_ID" layoutX="116.0" layoutY="405.0" onAction="#handleButtonAction" />
+      <TableView fx:id="tbl_Dean" layoutX="238.0" layoutY="50.0" prefHeight="200.0" prefWidth="81.0">
+        <columns>
+          <TableColumn fx:id="cln_Dean" onEditStart="#handleButtonAction" prefWidth="78.39999694824219" text="Dean ID" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

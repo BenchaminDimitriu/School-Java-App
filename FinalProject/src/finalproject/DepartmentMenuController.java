@@ -78,16 +78,17 @@ public class DepartmentMenuController implements Initializable {
     public static ObservableList<Teacher> Teach_ID_NameL = FXCollections.observableArrayList();
     public static ObservableList<Staff> Staff_ID_NameL = FXCollections.observableArrayList();
     public static ObservableList<Student> St_ID_NameL = FXCollections.observableArrayList();
+    public static ObservableList<Teacher> DeanL = FXCollections.observableArrayList();
     @FXML
     private Button btn_Clear;
     @FXML
     private Button btn_Assign_Dean;
     @FXML
-    private TableColumn<?, ?> cln_Teach_Dean;
-    @FXML
     private TextField tf_teach_ID;
     @FXML
-    private Button btn_Dept_ID1;
+    private TableView<Teacher> tbl_Dean;
+    @FXML
+    private TableColumn<Teacher, Integer> cln_Dean;
 
     public void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
@@ -184,26 +185,33 @@ public class DepartmentMenuController implements Initializable {
         }
     }
       public void AssignDean(){
-        Department holdDept = null;
-        Teacher newTeach = new Teacher();
+          System.out.println("Assign Dean");
+        Department holdDept = new Department();
+        Teacher DeanTeach = new Teacher();
         Teacher currentObj = new Teacher();
-        Iterator<Teacher> iterator = TeachL.iterator();
+        Iterator<Teacher> iterator = Teach_ID_NameL.iterator();
         while(iterator.hasNext()){
             currentObj = iterator.next();
             if(currentObj.getID() == Integer.parseInt(tf_teach_ID.getText())){
                 //id,name,age,gender,speciality,degree,department_id
-                newTeach.setID(currentObj.getID());
-                newTeach.setName(currentObj.getName());
-                newTeach.setAge(currentObj.getAge());
-                newTeach.setGender(currentObj.getGender());
-                newTeach.setSpeciality(currentObj.getSpeciality());
-                newTeach.setDegree(currentObj.getDegree());
-                newTeach.setDept_ID(currentObj.getDept_ID());
-                holdDept.setDean(newTeach);
+                DeanTeach.setID(currentObj.getID());
+                DeanTeach.setName(currentObj.getName());
+                DeanTeach.setAge(currentObj.getAge());
+                DeanTeach.setGender(currentObj.getGender());
+                DeanTeach.setSpeciality(currentObj.getSpeciality());
+                DeanTeach.setDegree(currentObj.getDegree());
+                DeanTeach.setDept_ID(currentObj.getDept_ID());
+                System.out.println("In iterator");
+//                holdDept.setDean(DeanTeach);
+                DeanL.add(DeanTeach);
+            }else{
+                System.out.println("ID does not exists");
             }
         }
-        if(newTeach.getID() != 0){
-            cln_Teach_Dean.setCellValueFactory(new PropertyValueFactory<>("Dean"));
+        if(DeanTeach.getID() != 0){
+            cln_Dean.setCellValueFactory(new PropertyValueFactory<Teacher, Integer>("ID"));
+            tbl_Dean.setItems(DeanL);
+            System.out.println("out loop");
         }else{
             System.out.println("Teacher not found!");
         }
