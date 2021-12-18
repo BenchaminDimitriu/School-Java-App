@@ -188,21 +188,52 @@ public class TeacherMenuController implements Initializable {
         boolean found = false;
         for (int i = 0; i < TeachL.size(); i++) {
             if(TeachL.get(i).getDegree() == tf_Degree.getText()){
-            myT.setDegree(TeachL.get(i).getDegree());
-    }
-    }
+                myT.setDegree(TeachL.get(i).getDegree());
+            }
+        }
             if(myT.getDegree() != null){
-            tf_ID.setText(Integer.toString(myT.getID()));
-            tf_Name.setText((myT.getName()));
-            tf_Age.setText(Integer.toString(myT.getAge()));
-            tf_Gender.setText((myT.getGender()));
-            tf_Speciality.setText((myT.getSpeciality()));
-            tf_Degree.setText((myT.getDegree()));
-            tf_Dept_ID.setText(Integer.toString(myT.getDept_ID()));
-            
-            Payment.ComputePayRoll();
-                System.out.println(Payment.ComputePayRoll());
-    }        
+                tf_ID.setText(Integer.toString(myT.getID()));
+                tf_Name.setText((myT.getName()));
+                tf_Age.setText(Integer.toString(myT.getAge()));
+                tf_Gender.setText((myT.getGender()));
+                tf_Speciality.setText((myT.getSpeciality()));
+                tf_Degree.setText((myT.getDegree()));
+                tf_Dept_ID.setText(Integer.toString(myT.getDept_ID()));
+
+                Payment.ComputePayRoll();
+                    System.out.println(Payment.ComputePayRoll());
+            }        
+    }
+    public void compute_Paroll(){
+        Teacher newTeach = new Teacher();
+        Teacher currentObj = new Teacher();
+        Iterator<Teacher> iterator = TeachL.iterator();
+        while(iterator.hasNext()){
+            currentObj = iterator.next();
+            if(currentObj.getID() == Integer.parseInt(tf_ID.getText())){
+                //id,name,age,gender,speciality,degree,department_id
+                newTeach.setID(currentObj.getID());
+                newTeach.setName(currentObj.getName());
+                newTeach.setAge(currentObj.getAge());
+                newTeach.setGender(currentObj.getGender());
+                newTeach.setSpeciality(currentObj.getSpeciality());
+                newTeach.setDegree(currentObj.getDegree());
+                newTeach.setDept_ID(currentObj.getDept_ID());
+            }
+        }
+        if(newTeach.getID() != 0){
+            tf_ID.setText(Integer.toString(newTeach.getID()));
+            tf_Name.setText(newTeach.getName());
+            tf_Age.setText(Integer.toString(newTeach.getAge()));
+            tf_Gender.setText(newTeach.getGender());
+            tf_Speciality.setText(newTeach.getSpeciality());
+            tf_Degree.setText(newTeach.getDegree());
+            tf_Dept_ID.setText(Integer.toString(newTeach.getDept_ID()));
+        }else{
+            System.out.println("Teacher not found!");
+        }
+        newTeach.ComputePayRoll();
+        System.out.println(newTeach.ComputePayRoll());
     }
     
     public void ChangeDept(){
@@ -274,7 +305,8 @@ public class TeacherMenuController implements Initializable {
             SaveTeacher();
         }
         if(event.getSource() == btn_Compute_Payroll){
-        DegreePayment();
+//        DegreePayment();
+        compute_Paroll();
         }
         if(event.getSource() == btn_Assign_Dept){
             ChangeDept();
