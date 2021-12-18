@@ -206,7 +206,9 @@ public class StudentMenuController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        btn_Add.setDisable(true);
+        btn_Search.setDisable(true);
+        btn_Assign_Dept.setDisable(true);
     }    
     
         @FXML
@@ -227,6 +229,8 @@ public class StudentMenuController implements Initializable {
         if(event.getSource() == btn_Load){
             InitiliazeStudent(StList);
             btn_Load.setDisable(true);
+            btn_Add.setDisable(false);
+            btn_Search.setDisable(false);
         }
         if(event.getSource() == btn_Add){
             SaveStudent();
@@ -236,6 +240,7 @@ public class StudentMenuController implements Initializable {
         }
         if(event.getSource() == btn_Search){
             search();
+            btn_Assign_Dept.setDisable(false);
         }
     } 
     public void InitiliazeStudent(ObservableList<Student> arr) throws IOException{

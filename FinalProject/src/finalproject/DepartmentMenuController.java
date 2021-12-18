@@ -38,7 +38,6 @@ import javafx.stage.Stage;
  * @author Admin
  */
 public class DepartmentMenuController implements Initializable {
-
     @FXML
     private TableView<Teacher> tbl_Teacher;
     @FXML
@@ -89,6 +88,10 @@ public class DepartmentMenuController implements Initializable {
     private TableView<Teacher> tbl_Dean;
     @FXML
     private TableColumn<Teacher, Integer> cln_Dean;
+    
+//    public static void disable_btn(Button test){
+//        test.setDisable(true);
+//    }
 
     public void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
@@ -218,7 +221,9 @@ public class DepartmentMenuController implements Initializable {
       }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        btn_Assign_Dean.setDisable(true);
+        btn_Dept_ID.setDisable(true);
+        btn_Clear.setDisable(true);
     }    
     
     @FXML
@@ -238,24 +243,31 @@ public class DepartmentMenuController implements Initializable {
     private void handleButtonAction(ActionEvent event) throws Exception{
         if(event.getSource() == btn_Load){
             initializeDept(DeptL);
-            btn_Load.setDisable(true);            
+            btn_Load.setDisable(true);      
+            btn_Dept_ID.setDisable(false);
         }
         if(event.getSource() == btn_Dept_ID){
             searchTeach();
             searchStaff();
             searchStudent();
             tf_dept_ID.clear();
+            btn_Clear.setDisable(false);
+            btn_Assign_Dean.setDisable(false);
         }
         if(event.getSource() == btn_Clear){
             tbl_Teacher.getItems().clear();
             tbl_Student.getItems().clear();
             tbl_Staff.getItems().clear();
+            tbl_Dean.getItems().clear();
             TeachL.clear();
             StaffL.clear();
             StList.clear();
+            btn_Assign_Dean.setDisable(true);
+            btn_Clear.setDisable(true);
         }
         if(event.getSource() == btn_Assign_Dean){
             AssignDean();
+            tf_teach_ID.clear();
         }
     }
 }

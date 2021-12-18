@@ -223,7 +223,10 @@ public class StaffMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        btn_Add.setDisable(true);
+        btn_Assign_Dept.setDisable(true);
+        btn_Compute_Payroll.setDisable(true);
+        btn_Search.setDisable(true);
     }
     @FXML
     private void handleMenuButtonAction(ActionEvent event) throws Exception{
@@ -241,8 +244,11 @@ public class StaffMenuController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) throws Exception{
         if(event.getSource() == btn_Load){
-        InitiliazeStaff(StaffL);
-        btn_Load.setDisable(true);
+            InitiliazeStaff(StaffL);
+            btn_Load.setDisable(true);
+            btn_Search.setDisable(false);
+            btn_Search.setDisable(false);
+            btn_Add.setDisable(false);
         }
         if(event.getSource() == btn_Add){
             saveStaff();
@@ -252,9 +258,12 @@ public class StaffMenuController implements Initializable {
         }
         if(event.getSource() == btn_Search){
             search();
+            btn_Assign_Dept.setDisable(false);
+            btn_Compute_Payroll.setDisable(false);
         }
         if(event.getSource() == btn_Compute_Payroll){
             StaffPay();
+            btn_Compute_Payroll.setDisable(true);
         }
     } 
     private void InitiliazeStaff(ObservableList<Staff> arr) throws IOException{
