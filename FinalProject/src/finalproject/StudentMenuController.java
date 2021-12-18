@@ -137,7 +137,7 @@ public class StudentMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt"));
             //id,name,age,gender,Course,Semester,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -160,6 +160,17 @@ public class StudentMenuController implements Initializable {
         }catch(FileNotFoundException lostfile){
             System.out.println(lostfile.getMessage());
         }
+    }
+    
+        public void ChangeDept(){
+        Student S = new Student(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
+                tf_Course.getText(),Integer.parseInt(tf_Semester.getText()),Integer.parseInt(tf_Dept_ID.getText()));
+            for(int i = 0; i < StList.size(); i++){
+            if(StList.get(i).getID()== Integer.parseInt(tf_ID.getText())){
+                StList.set(i, S);        
+     
+    }
+    }
     }
     
     @Override
@@ -188,7 +199,10 @@ public class StudentMenuController implements Initializable {
         }
         if(event.getSource() == btn_Add){
             SaveStudent();
-        }        
+        }
+        if(event.getSource() == btn_Assign_Dept){
+            ChangeDept();
+        }
     } 
     public void InitiliazeStudent(ObservableList<Student> arr) throws IOException{
         BufferedReaderFile(filereader);

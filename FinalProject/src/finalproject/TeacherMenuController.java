@@ -116,7 +116,7 @@ public class TeacherMenuController implements Initializable {
         }
     }
     public void BufferedWritter(Teacher T) throws IOException{
-        String path = "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt";
+        String path = "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt";
         File file = new File("path");
         FileWriter fw = new FileWriter(path, true);
         String line = T.getID() + "," + T.getName() + "," + T.getAge() + "," + T.getGender() + "," + T.getSpeciality() + "," + T.getDegree() + "," + T.getDept_ID();
@@ -140,7 +140,7 @@ public class TeacherMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
             //id,name,age,gender,speciality,degree,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -177,6 +177,44 @@ public class TeacherMenuController implements Initializable {
          tbl_Teach.setItems(arr);
      }
     
+    public void DegreePayment(){
+        Teacher Payment = new Teacher();
+        Teacher myT = new Teacher();
+        getTeacher(TeachL);
+        Teacher T = new Teacher(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
+        tf_Speciality.getText(),tf_Degree.getText(),Integer.parseInt(tf_Dept_ID.getText()));
+        
+        boolean found = false;
+        for (int i = 0; i < TeachL.size(); i++) {
+            if(TeachL.get(i).getDegree() == tf_Degree.getText()){
+            myT.setDegree(TeachL.get(i).getDegree());
+    }
+    }
+            if(myT.getDegree() != null){
+            tf_ID.setText(Integer.toString(myT.getID()));
+            tf_Name.setText((myT.getName()));
+            tf_Age.setText(Integer.toString(myT.getAge()));
+            tf_Gender.setText((myT.getGender()));
+            tf_Speciality.setText((myT.getSpeciality()));
+            tf_Degree.setText((myT.getDegree()));
+            tf_Dept_ID.setText(Integer.toString(myT.getDept_ID()));
+            
+            Payment.ComputePayRoll();
+                System.out.println(Payment.ComputePayRoll());
+    }        
+    }
+    
+    public void ChangeDept(){
+        Teacher T = new Teacher(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
+        tf_Speciality.getText(),tf_Degree.getText(),Integer.parseInt(tf_Dept_ID.getText()));
+        for(int i = 0; i < TeachL.size(); i++){
+            if(TeachL.get(i).getID()== Integer.parseInt(tf_ID.getText())){
+                TeachL.set(i, T);        
+     
+    }
+    }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
@@ -206,6 +244,13 @@ public class TeacherMenuController implements Initializable {
         if(event.getSource() == btn_Add){
             SaveTeacher();
         }
+        if(event.getSource() == btn_Compute_Payroll){
+        DegreePayment();
+        }
+        if(event.getSource() == btn_Assign_Dept){
+            ChangeDept();
+        }
+        
     }
 }
      

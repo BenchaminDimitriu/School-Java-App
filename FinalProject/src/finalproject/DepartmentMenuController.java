@@ -83,7 +83,7 @@ public class DepartmentMenuController implements Initializable {
     public void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Department.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Department.txt"));
             //id,description
             String line = reader.readLine();
             while(line!=null){

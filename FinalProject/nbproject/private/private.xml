@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dinal/Documents/GitHub/Final-Project/FinalProject/src/finalproject/StudentMenuController.java</file>
-            <file>file:/C:/Users/Dinal/Documents/GitHub/Final-Project/FinalProject/src/finalproject/Department.java</file>
-            <file>file:/C:/Users/Dinal/Documents/GitHub/Final-Project/FinalProject/src/finalproject/DepartmentMenuController.java</file>
-            <file>file:/C:/Users/Dinal/Documents/GitHub/Final-Project/FinalProject/src/finalproject/TeacherMenuController.java</file>
-            <file>file:/C:/Users/Dinal/Documents/GitHub/Final-Project/FinalProject/src/finalproject/Main.java</file>
-            <file>file:/C:/Users/Dinal/Documents/GitHub/Final-Project/FinalProject/src/finalproject/StaffMenuController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/Final-Project/FinalProject/src/finalproject/Department.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/Final-Project/FinalProject/src/finalproject/DepartmentMenuController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/Final-Project/FinalProject/src/finalproject/StudentMenuController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/Final-Project/FinalProject/src/finalproject/Teacher.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/Final-Project/FinalProject/src/finalproject/TeacherMenuController.java</file>
         </group>
     </open-files>
 </project-private>

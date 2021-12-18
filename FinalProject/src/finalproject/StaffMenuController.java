@@ -140,7 +140,7 @@ public class StaffMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
             //id,name,age,gender,duty,workload,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -163,8 +163,19 @@ public class StaffMenuController implements Initializable {
         }catch(FileNotFoundException lostfile){
             System.out.println(lostfile.getMessage());
         }
-        
     }
+    
+            public void ChangeDept(){
+        Staff Sf = new Staff(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
+        tf_Duty.getText(),Integer.parseInt(tf_Workload.getText()),Integer.parseInt(tf_Dept_ID.getText()));
+        for(int i = 0; i < StaffL.size(); i++){
+            if(StaffL.get(i).getID()== Integer.parseInt(tf_ID.getText())){
+                StaffL.set(i, Sf);        
+     
+    }
+    }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -190,6 +201,9 @@ public class StaffMenuController implements Initializable {
         }
         if(event.getSource() == btn_Add){
             saveStaff();
+        }
+        if(event.getSource() == btn_Assign_Dept){
+            ChangeDept();
         }
     } 
     private void InitiliazeStaff(ObservableList<Staff> arr) throws IOException{
