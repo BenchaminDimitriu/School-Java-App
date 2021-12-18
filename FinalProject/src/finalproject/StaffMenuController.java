@@ -5,6 +5,7 @@
  */
 package finalproject;
 
+import static finalproject.StudentMenuController.StList;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -140,7 +142,7 @@ public class StaffMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
             //id,name,age,gender,duty,workload,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -172,8 +174,37 @@ public class StaffMenuController implements Initializable {
             if(StaffL.get(i).getID()== Integer.parseInt(tf_ID.getText())){
                 StaffL.set(i, Sf);        
      
+            }
+        }
     }
-    }
+        public void search(){
+        Staff newStaff = new Staff();
+        Staff currentObj = new Staff();
+        Iterator<Staff> iterator = StaffL.iterator();
+        while(iterator.hasNext()){
+            currentObj = iterator.next();
+            if(currentObj.getID() == Integer.parseInt(tf_ID.getText())){
+                //id,name,age,gender,duty,workload,department_idw
+                newStaff.setID(currentObj.getID());
+                newStaff.setName(currentObj.getName());
+                newStaff.setAge(currentObj.getAge());
+                newStaff.setGender(currentObj.getGender());
+                newStaff.setDuty(currentObj.getDuty());
+                newStaff.setWorkload(currentObj.getWorkload());
+                newStaff.setDept_ID(currentObj.getDept_ID());
+            }
+        }
+        if(newStaff.getID() != 0){
+            tf_ID.setText(Integer.toString(newStaff.getID()));
+            tf_Name.setText(newStaff.getName());
+            tf_Age.setText(Integer.toString(newStaff.getAge()));
+            tf_Gender.setText(newStaff.getGender());
+            tf_Duty.setText(newStaff.getDuty());
+            tf_Workload.setText(Integer.toString(newStaff.getWorkload()));
+            tf_Dept_ID.setText(Integer.toString(newStaff.getDept_ID()));
+        }else{
+            System.out.println("Staff not found!");
+        }
     }
 
     @Override

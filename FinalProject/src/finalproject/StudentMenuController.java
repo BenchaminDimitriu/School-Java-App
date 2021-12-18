@@ -5,6 +5,7 @@
  */
 package finalproject;
 
+import static finalproject.TeacherMenuController.TeachL;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -137,7 +139,7 @@ public class StudentMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt"));
             //id,name,age,gender,Course,Semester,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -166,11 +168,40 @@ public class StudentMenuController implements Initializable {
         Student S = new Student(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
                 tf_Course.getText(),Integer.parseInt(tf_Semester.getText()),Integer.parseInt(tf_Dept_ID.getText()));
             for(int i = 0; i < StList.size(); i++){
-            if(StList.get(i).getID()== Integer.parseInt(tf_ID.getText())){
-                StList.set(i, S);        
-     
+                if(StList.get(i).getID()== Integer.parseInt(tf_ID.getText())){
+                    StList.set(i, S);        
+
+                }
+            }
     }
-    }
+        public void search(){
+        Student newSt = new Student();
+        Student currentObj = new Student();
+        Iterator<Student> iterator = StList.iterator();
+        while(iterator.hasNext()){
+            currentObj = iterator.next();
+            if(currentObj.getID() == Integer.parseInt(tf_ID.getText())){
+                //id,name,age,gender,Course,Semester,department_id
+                newSt.setID(currentObj.getID());
+                newSt.setName(currentObj.getName());
+                newSt.setAge(currentObj.getAge());
+                newSt.setGender(currentObj.getGender());
+                newSt.setCourse(currentObj.getCourse());
+                newSt.setSemester(currentObj.getSemester());
+                newSt.setDept_id(currentObj.getDept_id());
+            }
+        }
+        if(newSt.getID() != 0){
+            tf_ID.setText(Integer.toString(newSt.getID()));
+            tf_Name.setText(newSt.getName());
+            tf_Age.setText(Integer.toString(newSt.getAge()));
+            tf_Gender.setText(newSt.getGender());
+            tf_Course.setText(newSt.getCourse());
+            tf_Semester.setText(Integer.toString(newSt.getSemester()));
+            tf_Dept_ID.setText(Integer.toString(newSt.getDept_id()));
+        }else{
+            System.out.println("Student not found!");
+        }
     }
     
     @Override
@@ -202,6 +233,9 @@ public class StudentMenuController implements Initializable {
         }
         if(event.getSource() == btn_Assign_Dept){
             ChangeDept();
+        }
+        if(event.getSource() == btn_Search){
+            search();
         }
     } 
     public void InitiliazeStudent(ObservableList<Student> arr) throws IOException{

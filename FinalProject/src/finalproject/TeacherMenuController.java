@@ -26,6 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -140,7 +141,7 @@ public class TeacherMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
             //id,name,age,gender,speciality,degree,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -211,10 +212,38 @@ public class TeacherMenuController implements Initializable {
             if(TeachL.get(i).getID()== Integer.parseInt(tf_ID.getText())){
                 TeachL.set(i, T);        
      
+            }
+        }
     }
+    public void search(){
+        Teacher newTeach = new Teacher();
+        Teacher currentObj = new Teacher();
+        Iterator<Teacher> iterator = TeachL.iterator();
+        while(iterator.hasNext()){
+            currentObj = iterator.next();
+            if(currentObj.getID() == Integer.parseInt(tf_ID.getText())){
+                //id,name,age,gender,speciality,degree,department_id
+                newTeach.setID(currentObj.getID());
+                newTeach.setName(currentObj.getName());
+                newTeach.setAge(currentObj.getAge());
+                newTeach.setGender(currentObj.getGender());
+                newTeach.setSpeciality(currentObj.getSpeciality());
+                newTeach.setDegree(currentObj.getDegree());
+                newTeach.setDept_ID(currentObj.getDept_ID());
+            }
+        }
+        if(newTeach.getID() != 0){
+            tf_ID.setText(Integer.toString(newTeach.getID()));
+            tf_Name.setText(newTeach.getName());
+            tf_Age.setText(Integer.toString(newTeach.getAge()));
+            tf_Gender.setText(newTeach.getGender());
+            tf_Speciality.setText(newTeach.getSpeciality());
+            tf_Degree.setText(newTeach.getDegree());
+            tf_Dept_ID.setText(Integer.toString(newTeach.getDept_ID()));
+        }else{
+            System.out.println("Teacher not found!");
+        }
     }
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
@@ -249,6 +278,9 @@ public class TeacherMenuController implements Initializable {
         }
         if(event.getSource() == btn_Assign_Dept){
             ChangeDept();
+        }
+        if(event.getSource() == btn_Search){
+            search();
         }
         
     }
