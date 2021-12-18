@@ -116,7 +116,7 @@ public class TeacherMenuController implements Initializable {
         }
     }
     public void BufferedWritter(Teacher T) throws IOException{
-        String path = "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt";
+        String path = "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt";
         File file = new File("path");
         FileWriter fw = new FileWriter(path, true);
         String line = T.getID() + "," + T.getName() + "," + T.getAge() + "," + T.getGender() + "," + T.getSpeciality() + "," + T.getDegree() + "," + T.getDept_ID();
@@ -140,7 +140,7 @@ public class TeacherMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
             //id,name,age,gender,speciality,degree,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -178,64 +178,33 @@ public class TeacherMenuController implements Initializable {
      }
     
     public void DegreePayment(){
-    int PhdSal = 112;
-    int MasterSal = 82;
-    int BachelorSal = 42;
-    double saldegree = 0;
-    String Deg;
-    
-    Deg = tf_Degree.getText();
-    if(Deg == "phd"){
-        //double saldegree;
-        saldegree = (36 * PhdSal * 2);
-        System.out.println(saldegree);
-        //Deg = Double.toString(saldegree);        
-        tf_Compute_Payroll.setText(String.valueOf(saldegree));
-    }
-    if(Deg == "master"){
-        //double saldegree;
-        saldegree = (36 * MasterSal * 2);
-        System.out.println(saldegree);
-        tf_Compute_Payroll.setText(String.valueOf(saldegree));
-    }
-    if(Deg == "bachelor"){
-        //double saldegree;
-        saldegree = (36 * BachelorSal * 2);
-        System.out.println(saldegree);
-        tf_Compute_Payroll.setText(String.valueOf(saldegree));   
-    }
-    tf_Compute_Payroll.setText(Double.toString(saldegree));
-    }
-    public void compute_Payroll(){
-        Teacher newTeach = new Teacher();
-        Teacher currentObj = new Teacher();
-        Iterator<Teacher> iterator = TeachL.iterator();
-        while(iterator.hasNext()){
-            currentObj = iterator.next();
-            if(currentObj.getID() == Integer.parseInt(tf_ID.getText())){
-                //id,name,age,gender,speciality,degree,department_id
-                newTeach.setID(currentObj.getID());
-                newTeach.setName(currentObj.getName());
-                newTeach.setAge(currentObj.getAge());
-                newTeach.setGender(currentObj.getGender());
-                newTeach.setSpeciality(currentObj.getSpeciality());
-                newTeach.setDegree(currentObj.getDegree());
-                newTeach.setDept_ID(currentObj.getDept_ID());
-            }
+        int PhdSal = 112;
+        int MasterSal = 82;
+        int BachelorSal = 42;
+        double saldegree = 0;
+        String Deg;
+
+        Deg = tf_Degree.getText();
+        if("phd".equals(Deg)){
+            //double saldegree;
+            saldegree = (36 * PhdSal * 2);
+            System.out.println(saldegree);
+            //Deg = Double.toString(saldegree);        
+            tf_Compute_Payroll.setText(String.valueOf(saldegree));
         }
-        if(newTeach.getID() != 0){
-            tf_ID.setText(Integer.toString(newTeach.getID()));
-            tf_Name.setText(newTeach.getName());
-            tf_Age.setText(Integer.toString(newTeach.getAge()));
-            tf_Gender.setText(newTeach.getGender());
-            tf_Speciality.setText(newTeach.getSpeciality());
-            tf_Degree.setText(newTeach.getDegree());
-            tf_Dept_ID.setText(Integer.toString(newTeach.getDept_ID()));
-        }else{
-            System.out.println("Teacher not found!");
+        if("master".equals(Deg)){
+            //double saldegree;
+            saldegree = (36 * MasterSal * 2);
+            System.out.println(saldegree);
+            tf_Compute_Payroll.setText(String.valueOf(saldegree));
         }
-        //newTeach.ComputePayRoll();
-        //System.out.println(newTeach.ComputePayRoll());
+        if("bachelor".equals(Deg)){
+            //double saldegree;
+            saldegree = (36 * BachelorSal * 2);
+            System.out.println(saldegree);
+            tf_Compute_Payroll.setText(String.valueOf(saldegree));   
+        }
+        tf_Compute_Payroll.setText(Double.toString(saldegree));
     }
     
     public void ChangeDept(){

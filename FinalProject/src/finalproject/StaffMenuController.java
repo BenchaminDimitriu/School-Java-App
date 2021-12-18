@@ -116,7 +116,7 @@ public class StaffMenuController implements Initializable {
         }
     }
     public void BufferedWritter(Staff Sf) throws IOException {
-        String path = "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt";
+        String path = "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt";
         File file = new File("path");
         FileWriter fw = new FileWriter(path, true);
         String line = Sf.getID() + "," + Sf.getName() + "," + Sf.getAge() + "," + Sf.getGender() + "," + Sf.getDuty()+ "," + Sf.getWorkload()+ "," + Sf.getDept_ID();
@@ -142,7 +142,7 @@ public class StaffMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
             //id,name,age,gender,duty,workload,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -206,6 +206,20 @@ public class StaffMenuController implements Initializable {
             System.out.println("Staff not found!");
         }
     }
+        public void StaffPay() {
+            double sal = 0;
+            int workload;
+            workload = Integer.parseInt(tf_Workload.getText());
+            //checking if workload is over 36h
+            if(workload<36){
+                //equation
+                sal = (workload * 32 * 2) * 0.85;
+                tf_Compute_Payroll.setText(String.valueOf(sal));
+            }else{
+                //if workload does not make sense
+                System.out.println("Working hours cannot be more than 36 hours");
+            }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -235,6 +249,12 @@ public class StaffMenuController implements Initializable {
         }
         if(event.getSource() == btn_Assign_Dept){
             ChangeDept();
+        }
+        if(event.getSource() == btn_Search){
+            search();
+        }
+        if(event.getSource() == btn_Compute_Payroll){
+            StaffPay();
         }
     } 
     private void InitiliazeStaff(ObservableList<Staff> arr) throws IOException{
