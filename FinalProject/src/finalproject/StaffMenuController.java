@@ -137,10 +137,10 @@ public class StaffMenuController implements Initializable {
         getStaff(StaffL);
     }
         
-    public void BufferedReaderFile(FileReader fileReader) throws IOException{
+    public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
             //id,name,age,gender,duty,workload,department_id
             String line = reader.readLine();
              while(line!=null){

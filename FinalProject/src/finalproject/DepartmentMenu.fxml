@@ -13,19 +13,19 @@
       <TableView fx:id="tbl_Teacher" layoutX="31.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="cln_Teach_ID" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="cln_Teach_Name" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="cln_Teach_Name" prefWidth="119.20001220703125" text="Name" />
         </columns>
       </TableView>
       <TableView fx:id="tbl_Student" layoutX="329.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="cln_Stu_ID" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="cln_Stu_Name" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="cln_Stu_Name" prefWidth="118.4000244140625" text="Name" />
         </columns>
       </TableView>
       <TableView fx:id="tbl_Staff" layoutX="625.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="cln_Staff_ID" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="cln_Staff_Name" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="cln_Staff_Name" prefWidth="118.400146484375" text="Name" />
         </columns>
       </TableView>
       <Text fill="#df7111" layoutX="73.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher">

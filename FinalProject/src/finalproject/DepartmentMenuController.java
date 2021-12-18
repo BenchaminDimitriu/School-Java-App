@@ -5,6 +5,8 @@
  */
 package finalproject;
 
+import static finalproject.StaffMenuController.StaffL;
+import static finalproject.StudentMenuController.StList;
 import static finalproject.TeacherMenuController.TeachL;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -73,6 +75,8 @@ public class DepartmentMenuController implements Initializable {
     
     public static ObservableList<Department> DeptL = FXCollections.observableArrayList();
     public static ObservableList<Teacher> Teach_ID_NameL = FXCollections.observableArrayList();
+    public static ObservableList<Staff> Staff_ID_NameL = FXCollections.observableArrayList();
+    public static ObservableList<Student> St_ID_NameL = FXCollections.observableArrayList();
     @FXML
     private Button btn_Clear;
 
@@ -111,17 +115,63 @@ public class DepartmentMenuController implements Initializable {
         newDept.setID(Integer.parseInt(tf_dept_ID.getText()));
         for (int i = 0; i < TeachL.size(); i++) {
                 if(TeachL.get(i).getDept_ID() == newDept.getID()){
-                found = true;
-                Teach_ID_NameL.add(TeachL.get(i));
+                    found = true;
+                    Teach_ID_NameL.add(TeachL.get(i));
+//                    System.out.println("in loop");
                 }
                 else{
                     System.out.println("ID does not exsist!");
                 }
         }
         if (found){
+//            System.out.println("out loop");
             cln_Teach_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
             cln_Teach_Name.setCellValueFactory(new PropertyValueFactory<>("Name")); 
             tbl_Teacher.setItems(Teach_ID_NameL);
+        }
+    }
+      public void searchStaff() throws IOException{
+        StaffMenuController.BufferedReaderFile(fileReader);
+        boolean found = false;
+        Department newDept = new Department();
+        newDept.setID(Integer.parseInt(tf_dept_ID.getText()));
+        for (int i = 0; i < StaffL.size(); i++) {
+                if(StaffL.get(i).getDept_ID() == newDept.getID()){
+                    found = true;
+                    Staff_ID_NameL.add(StaffL.get(i));
+//                    System.out.println("in loop");
+                }
+                else{
+                    System.out.println("ID does not exsist!");
+                }
+        }
+        if (found){
+//            System.out.println("out loop");
+            cln_Staff_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+            cln_Staff_Name.setCellValueFactory(new PropertyValueFactory<>("Name")); 
+            tbl_Staff.setItems(Staff_ID_NameL);
+        }
+    }
+      public void searchStudent() throws IOException{
+        StudentMenuController.BufferedReaderFile(fileReader);
+        boolean found = false;
+        Department newDept = new Department();
+        newDept.setID(Integer.parseInt(tf_dept_ID.getText()));
+        for (int i = 0; i < StList.size(); i++) {
+                if(StList.get(i).getDept_id() == newDept.getID()){
+                    found = true;
+                    St_ID_NameL.add(StList.get(i));
+//                    System.out.println("in loop");
+                }
+                else{
+                    System.out.println("ID does not exsist!");
+                }
+        }
+        if (found){
+//            System.out.println("out loop");
+            cln_Stu_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+            cln_Stu_Name.setCellValueFactory(new PropertyValueFactory<>("Name")); 
+            tbl_Student.setItems(St_ID_NameL);
         }
     }
     @Override
@@ -150,12 +200,17 @@ public class DepartmentMenuController implements Initializable {
         }
         if(event.getSource() == btn_Dept_ID){
             searchTeach();
+            searchStaff();
+            searchStudent();
             tf_dept_ID.clear();
         }
         if(event.getSource() == btn_Clear){
             tbl_Teacher.getItems().clear();
             tbl_Student.getItems().clear();
             tbl_Staff.getItems().clear();
+            TeachL.clear();
+            StaffL.clear();
+            StList.clear();
         }
     }
 }
