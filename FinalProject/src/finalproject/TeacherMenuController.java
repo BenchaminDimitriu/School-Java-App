@@ -61,7 +61,6 @@ public class TeacherMenuController implements Initializable {
     private Button btn_Assign_Dept;
     @FXML
     private Button btn_Search;
-    @FXML
     private Button btn_Assign_Dean;
     @FXML
     private TableView<Teacher> tbl_Teach;
@@ -275,6 +274,37 @@ public class TeacherMenuController implements Initializable {
             System.out.println("Teacher not found!");
         }
     }
+//    public void assignDean(){
+//        Department holdDept = null;
+//        Teacher newTeach = new Teacher();
+//        Teacher currentObj = new Teacher();
+//        Iterator<Teacher> iterator = TeachL.iterator();
+//        while(iterator.hasNext()){
+//            currentObj = iterator.next();
+//            if(currentObj.getID() == Integer.parseInt(tf_ID.getText())){
+//                //id,name,age,gender,speciality,degree,department_id
+//                newTeach.setID(currentObj.getID());
+//                newTeach.setName(currentObj.getName());
+//                newTeach.setAge(currentObj.getAge());
+//                newTeach.setGender(currentObj.getGender());
+//                newTeach.setSpeciality(currentObj.getSpeciality());
+//                newTeach.setDegree(currentObj.getDegree());
+//                newTeach.setDept_ID(currentObj.getDept_ID());
+//                holdDept.setDean(newTeach);
+//            }
+//        }
+//        if(newTeach.getID() != 0){
+//            tf_ID.setText(Integer.toString(newTeach.getID()));
+//            tf_Name.setText(newTeach.getName());
+//            tf_Age.setText(Integer.toString(newTeach.getAge()));
+//            tf_Gender.setText(newTeach.getGender());
+//            tf_Speciality.setText(newTeach.getSpeciality());
+//            tf_Degree.setText(newTeach.getDegree());
+//            tf_Dept_ID.setText(Integer.toString(newTeach.getDept_ID()));
+//        }else{
+//            System.out.println("Teacher not found!");
+//        }
+//    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
@@ -314,7 +344,6 @@ public class TeacherMenuController implements Initializable {
         if(event.getSource() == btn_Search){
             search();
         }
-        
     }
 }
      

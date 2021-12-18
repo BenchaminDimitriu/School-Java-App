@@ -15,6 +15,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -79,11 +80,19 @@ public class DepartmentMenuController implements Initializable {
     public static ObservableList<Student> St_ID_NameL = FXCollections.observableArrayList();
     @FXML
     private Button btn_Clear;
+    @FXML
+    private Button btn_Assign_Dean;
+    @FXML
+    private TableColumn<?, ?> cln_Teach_Dean;
+    @FXML
+    private TextField tf_teach_ID;
+    @FXML
+    private Button btn_Dept_ID1;
 
     public void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Department.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Department.txt"));
             //id,description
             String line = reader.readLine();
             while(line!=null){
@@ -174,6 +183,31 @@ public class DepartmentMenuController implements Initializable {
             tbl_Student.setItems(St_ID_NameL);
         }
     }
+      public void AssignDean(){
+        Department holdDept = null;
+        Teacher newTeach = new Teacher();
+        Teacher currentObj = new Teacher();
+        Iterator<Teacher> iterator = TeachL.iterator();
+        while(iterator.hasNext()){
+            currentObj = iterator.next();
+            if(currentObj.getID() == Integer.parseInt(tf_teach_ID.getText())){
+                //id,name,age,gender,speciality,degree,department_id
+                newTeach.setID(currentObj.getID());
+                newTeach.setName(currentObj.getName());
+                newTeach.setAge(currentObj.getAge());
+                newTeach.setGender(currentObj.getGender());
+                newTeach.setSpeciality(currentObj.getSpeciality());
+                newTeach.setDegree(currentObj.getDegree());
+                newTeach.setDept_ID(currentObj.getDept_ID());
+                holdDept.setDean(newTeach);
+            }
+        }
+        if(newTeach.getID() != 0){
+            cln_Teach_Dean.setCellValueFactory(new PropertyValueFactory<>("Dean"));
+        }else{
+            System.out.println("Teacher not found!");
+        }
+      }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -211,6 +245,9 @@ public class DepartmentMenuController implements Initializable {
             TeachL.clear();
             StaffL.clear();
             StList.clear();
+        }
+        if(event.getSource() == btn_Assign_Dean){
+            AssignDean();
         }
     }
 }
