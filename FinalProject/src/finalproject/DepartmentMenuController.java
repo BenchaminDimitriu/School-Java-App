@@ -89,14 +89,11 @@ public class DepartmentMenuController implements Initializable {
     @FXML
     private TableColumn<Teacher, Integer> cln_Dean;
     
-//    public static void disable_btn(Button test){
-//        test.setDisable(true);
-//    }
-
+    //file Reading
     public void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Department.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Department.txt"));
             //id,description
             String line = reader.readLine();
             while(line!=null){
@@ -115,12 +112,14 @@ public class DepartmentMenuController implements Initializable {
             System.out.println(lostfile.getMessage());
         }
     }
+    //File reading to JavaFX
     public void initializeDept(ObservableList<Department> arr) throws IOException{
         BufferedReaderFile(fileReader);
         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         cln_Dept_Desc.setCellValueFactory(new PropertyValueFactory<>("Description"));
         tbl_Department.setItems(arr);
     }
+    //searching in JavaFx
     public void searchTeach() throws IOException{
         TeacherMenuController.BufferedReaderFile(fileReader);
         boolean found = false;
@@ -187,6 +186,7 @@ public class DepartmentMenuController implements Initializable {
             tbl_Student.setItems(St_ID_NameL);
         }
     }
+      //Assigning dean to a teacher
       public void AssignDean(){
           System.out.println("Assign Dean");
         Department holdDept = new Department();

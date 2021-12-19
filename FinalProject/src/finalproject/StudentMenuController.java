@@ -86,7 +86,7 @@ public class StudentMenuController implements Initializable {
     public static ObservableList<Student> StList = FXCollections.observableArrayList();
     
      
-    
+        
         public void getStudent(ObservableList<Student> arr){
         cln_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         cln_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -97,6 +97,7 @@ public class StudentMenuController implements Initializable {
         cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_id"));
         tbl_Stu.setItems(arr);
     }
+        //Student List into JavaFx
             public void getStudentList() throws IOException{
         Student S = new Student(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
                 tf_Course.getText(),Integer.parseInt(tf_Semester.getText()),Integer.parseInt(tf_Dept_ID.getText()));
@@ -114,8 +115,9 @@ public class StudentMenuController implements Initializable {
             BufferedWritter(S); 
         }
     }
+    //Writing Files in Student to JavaFx
     public void BufferedWritter(Student S) throws IOException{
-        String path = "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt";
+        String path = "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt";
         File file = new File("path");
         FileWriter fw = new FileWriter(path, true);
         String line = S.getID() + "," + S.getName() + "," + S.getAge() + "," + S.getGender() + "," + S.getCourse() + "," + S.getSemester() + "," + S.getDept_id();
@@ -136,10 +138,11 @@ public class StudentMenuController implements Initializable {
         getStudentList();
         getStudent(StList);
     }
+    //Reading file from Student Use for Load
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Student.txt"));
             //id,name,age,gender,Course,Semester,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -163,7 +166,7 @@ public class StudentMenuController implements Initializable {
             System.out.println(lostfile.getMessage());
         }
     }
-    
+        //Assign a student Department
         public void ChangeDept(){
         Student S = new Student(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
                 tf_Course.getText(),Integer.parseInt(tf_Semester.getText()),Integer.parseInt(tf_Dept_ID.getText()));
@@ -174,6 +177,7 @@ public class StudentMenuController implements Initializable {
                 }
             }
     }
+        //The search button
         public void search(){
         Student newSt = new Student();
         Student currentObj = new Student();

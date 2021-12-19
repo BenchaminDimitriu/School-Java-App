@@ -117,7 +117,7 @@ public class TeacherMenuController implements Initializable {
         }
     }
     public void BufferedWritter(Teacher T) throws IOException{
-        String path = "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt";
+        String path = "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt";
         File file = new File("path");
         FileWriter fw = new FileWriter(path, true);
         String line = T.getID() + "," + T.getName() + "," + T.getAge() + "," + T.getGender() + "," + T.getSpeciality() + "," + T.getDegree() + "," + T.getDept_ID();
@@ -141,7 +141,7 @@ public class TeacherMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Teacher.txt"));
             //id,name,age,gender,speciality,degree,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -177,7 +177,7 @@ public class TeacherMenuController implements Initializable {
          cln_Dept_ID.setCellValueFactory(new PropertyValueFactory<>("Dept_ID"));
          tbl_Teach.setItems(arr);
      }
-    
+    //The compute payroll button
     public void DegreePayment(){
         int PhdSal = 112;
         int MasterSal = 82;
@@ -207,7 +207,7 @@ public class TeacherMenuController implements Initializable {
         }
         tf_Compute_Payroll.setText(Double.toString(saldegree));
     }
-    
+    //assigning teacher to a department
     public void ChangeDept(){
         Teacher T = new Teacher(Integer.parseInt(tf_ID.getText()),tf_Name.getText(),Integer.parseInt(tf_Age.getText()),tf_Gender.getText(),
         tf_Speciality.getText(),tf_Degree.getText(),Integer.parseInt(tf_Dept_ID.getText()));

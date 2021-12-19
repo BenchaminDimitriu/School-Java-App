@@ -3,3 +3,4 @@
 5546,Sana Malkesh,28,female,topology,master,1001
 6854,Anastasia Ponomareva,32,other,micro economy,phd,1005
 4567,Steve James,27,male,computer vision,phd,1001
+1111,James,25,male,computer vision,phd,1003

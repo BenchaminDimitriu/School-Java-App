@@ -31,6 +31,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author Admin
  */
+
+//Switching between Scenes
 public class MenuController implements Initializable {
 
     @FXML

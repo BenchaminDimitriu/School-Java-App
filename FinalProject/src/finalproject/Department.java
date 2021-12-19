@@ -5,9 +5,6 @@ import java.util.ArrayList;
 
 public class Department {
 
-//    static Object getScene() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
    //Variables for  Department
     private int ID;
     private String description;
@@ -16,7 +13,7 @@ public class Department {
     public static ArrayList<Teacher> teacherDept = new ArrayList<Teacher>();
     public static ArrayList<Student> studentDept = new ArrayList<Student>();
     public static ArrayList<Staff> staffDept = new ArrayList<Staff>();
-
+    //empty constructor
     public Department() {
     
     }

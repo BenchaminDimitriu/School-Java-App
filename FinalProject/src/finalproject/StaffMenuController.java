@@ -116,7 +116,7 @@ public class StaffMenuController implements Initializable {
         }
     }
     public void BufferedWritter(Staff Sf) throws IOException {
-        String path = "C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt";
+        String path = "C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt";
         File file = new File("path");
         FileWriter fw = new FileWriter(path, true);
         String line = Sf.getID() + "," + Sf.getName() + "," + Sf.getAge() + "," + Sf.getGender() + "," + Sf.getDuty()+ "," + Sf.getWorkload()+ "," + Sf.getDept_ID();
@@ -142,7 +142,7 @@ public class StaffMenuController implements Initializable {
     public static void BufferedReaderFile(FileReader fileReader) throws IOException{
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader("C:\\Users\\Dinal\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
+            reader = new BufferedReader(new FileReader("C:\\Users\\Admin\\Documents\\GitHub\\Final-Project\\FinalProject\\Staff.txt"));
             //id,name,age,gender,duty,workload,department_id
             String line = reader.readLine();
              while(line!=null){
@@ -206,6 +206,7 @@ public class StaffMenuController implements Initializable {
             System.out.println("Staff not found!");
         }
     }
+        //The compute payroll for staff
         public void StaffPay() {
             double sal = 0;
             int workload;
